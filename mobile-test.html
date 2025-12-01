@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hupscale - Mobile Responsiveness Test</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #007B79;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .device-frames {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .device {
+            border: 2px solid #333;
+            border-radius: 20px;
+            padding: 10px;
+            background: #000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .device-name {
+            color: white;
+            text-align: center;
+            font-size: 12px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .device-screen {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        iframe {
+            width: 100%;
+            border: none;
+            display: block;
+        }
+        .info-section {
+            background: #e8f5f4;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .info-section h2 {
+            color: #007B79;
+            margin-top: 0;
+        }
+        .info-section ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .info-section li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+        .test-checklist {
+            background: #fff9e6;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .test-checklist h3 {
+            color: #d97706;
+            margin-top: 0;
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .checkbox-item input {
+            margin-right: 10px;
+            width: 18px;
+            height: 18px;
+        }
+        .status {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        .status.pass {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        .status.pending {
+            background: #fef3c7;
+            color: #92400e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Hupscale Mobile Responsiveness Test</h1>
+        <p class="subtitle">Testing the website across multiple device viewports</p>
+        
+        <div class="info-section">
+            <h2>✅ Responsive Features Implemented</h2>
+            <ul>
+                <li><strong>Viewport Meta Tag:</strong> Properly configured for mobile devices</li>
+                <li><strong>Fluid Typography:</strong> Using clamp() for scalable text sizes</li>
+                <li><strong>Mobile Navigation:</strong> Hamburger menu with overlay</li>
+                <li><strong>Touch Targets:</strong> Minimum 44px × 44px for all interactive elements</li>
+                <li><strong>Flexible Layouts:</strong> CSS Grid and Flexbox with responsive breakpoints</li>
+                <li><strong>Image Optimization:</strong> Responsive images with proper scaling</li>
+                <li><strong>Custom Breakpoints:</strong> xs (375px), sm (640px), md (768px), lg (1024px), xl (1280px), 2xl (1536px)</li>
+            </ul>
+        </div>
+
+        <div class="test-checklist">
+            <h3>📋 Mobile Testing Checklist</h3>
+            <div class="checkbox-item">
+                <input type="checkbox" id="nav">
+                <label for="nav">Navigation menu works on mobile (hamburger menu)</label>
+                <span class="status pending">Pending</span>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="hero">
+                <label for="hero">Hero section scales properly</label>
+                <span class="status pending">Pending</span>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="benefits">
+                <label for="benefits">Benefits section stacks vertically on mobile</label>
+                <span class="status pending">Pending</span>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="services">
+                <label for="services">Service cards are touch-friendly</label>
+                <span class="status pending">Pending</span>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="process">
+                <label for="process">Process section shows vertical layout on mobile</label>
+                <span class="status pending">Pending</span>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="testimonials">
+                <label for="testimonials">Testimonials carousel works with touch</label>
+                <span class="status pending">Pending</span>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="faq">
+                <label for="faq">FAQ accordion is touch-friendly</label>
+                <span class="status pending">Pending</span>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="overflow">
+                <label for="overflow">No horizontal scroll on any section</label>
+                <span class="status pending">Pending</span>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="images">
+                <label for="images">All images scale properly</label>
+                <span class="status pending">Pending</span>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="text">
+                <label for="text">Text is readable at all sizes</label>
+                <span class="status pending">Pending</span>
+            </div>
+        </div>
+
+        <h2 style="margin-top: 40px; color: #007B79;">📱 Device Preview Frames</h2>
+        <p style="color: #666; margin-bottom: 20px;">View the website in different mobile viewport sizes:</p>
+        
+        <div class="device-frames">
+            <!-- iPhone SE -->
+            <div class="device">
+                <div class="device-name">iPhone SE (375×667)</div>
+                <div class="device-screen">
+                    <iframe src="http://localhost:3000" height="667"></iframe>
+                </div>
+            </div>
+
+            <!-- iPhone 12 Pro -->
+            <div class="device">
+                <div class="device-name">iPhone 12 Pro (390×844)</div>
+                <div class="device-screen">
+                    <iframe src="http://localhost:3000" height="844"></iframe>
+                </div>
+            </div>
+
+            <!-- iPhone 14 Pro Max -->
+            <div class="device">
+                <div class="device-name">iPhone 14 Pro Max (430×932)</div>
+                <div class="device-screen">
+                    <iframe src="http://localhost:3000" height="932"></iframe>
+                </div>
+            </div>
+
+            <!-- iPad Mini -->
+            <div class="device">
+                <div class="device-name">iPad Mini (768×1024)</div>
+                <div class="device-screen">
+                    <iframe src="http://localhost:3000" height="1024"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 40px; padding: 20px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #0284c7;">
+            <h3 style="color: #0284c7; margin-top: 0;">💡 Testing Instructions</h3>
+            <ol style="line-height: 1.8;">
+                <li>Open this page in a web browser</li>
+                <li>Check each device frame to see how the website appears</li>
+                <li>Use browser DevTools to test additional viewport sizes</li>
+                <li>Test touch interactions on an actual mobile device</li>
+                <li>Check for horizontal scrolling issues</li>
+                <li>Verify all interactive elements are accessible</li>
+                <li>Test in both portrait and landscape orientations</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        // Auto-check items as you test
+        document.querySelectorAll('.checkbox-item input').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const status = this.parentElement.querySelector('.status');
+                if (this.checked) {
+                    status.textContent = 'Pass';
+                    status.className = 'status pass';
+                } else {
+                    status.textContent = 'Pending';
+                    status.className = 'status pending';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
