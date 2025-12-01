@@ -140,6 +140,7 @@ function HomeContent() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const [openFaqIdx, setOpenFaqIdx] = useState<number | null>(null);
+  const [expandedBios, setExpandedBios] = useState<{[key: number]: boolean}>({});
 
   // Get translated testimonials data
   const getTestimonials = () => [
@@ -626,7 +627,7 @@ function HomeContent() {
             > 
               <div className="flex flex-col space-y-4">
                 <button
-                  className="text-left py-2 px-4 text-[rgb(35,35,35)] hover:bg-gray-100 rounded-lg"
+                  className="text-left min-h-[44px] py-3 px-4 text-[rgb(35,35,35)] hover:bg-gray-100 rounded-lg"
                   onClick={() => {
                     setIsMobileMenuOpen(false);
                     setTimeout(() => {
@@ -637,7 +638,7 @@ function HomeContent() {
                   {t('navigation.benefits')}
                 </button>
                 <button
-                  className="text-left py-2 px-4 text-[rgb(35,35,35)] hover:bg-gray-100 rounded-lg"
+                  className="text-left min-h-[44px] py-3 px-4 text-[rgb(35,35,35)] hover:bg-gray-100 rounded-lg"
                   onClick={() => {
                     setIsMobileMenuOpen(false);
                     setTimeout(() => {
@@ -648,7 +649,7 @@ function HomeContent() {
                   {t('navigation.services')}
                 </button>
                 <button
-                  className="text-left py-2 px-4 text-[rgb(35,35,35)] hover:bg-gray-100 rounded-lg"
+                  className="text-left min-h-[44px] py-3 px-4 text-[rgb(35,35,35)] hover:bg-gray-100 rounded-lg"
                   onClick={() => {
                     setIsMobileMenuOpen(false);
                     setTimeout(() => {
@@ -659,7 +660,7 @@ function HomeContent() {
                   {t('navigation.testimonials')}
                 </button>
                 <button
-                  className="text-left py-2 px-4 text-[rgb(35,35,35)] hover:bg-gray-100 rounded-lg"
+                  className="text-left min-h-[44px] py-3 px-4 text-[rgb(35,35,35)] hover:bg-gray-100 rounded-lg"
                   onClick={() => {
                     setIsMobileMenuOpen(false);
                     setTimeout(() => {
@@ -758,7 +759,7 @@ function HomeContent() {
 
         {/* Section 2: What is Hupscale - Layer 2 */}
         <section className="sticky top-0 h-screen w-full" style={{ zIndex: 2, background: '#007B79', minHeight: '100vh' }}>
-        <div className="flex w-full h-full flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16 px-4 sm:px-8 lg:px-16 py-8">
+        <div className="flex w-full h-full flex-col lg:flex-row items-center justify-between gap-4 sm:gap-8 lg:gap-16 px-4 sm:px-8 lg:px-16 py-8 sm:py-12 lg:py-16">
         {/* What is Hupscale - Left side content */}
         <div className="flex-1 max-w-2xl">
           {/* Heading - Responsive */}
@@ -781,7 +782,7 @@ function HomeContent() {
 
         {/* We work with - Dark container responsive */}
         <div className="bg-[#181818] flex-1 w-full rounded-tl-[60px] rounded-bl-[60px] p-8 lg:p-12 xl:p-16">
-          <div className="flex flex-col gap-8 lg:gap-12">
+          <div className="flex flex-col gap-4 sm:gap-6 lg:gap-12">
             {/* We work with heading - Responsive */}
             <div>
               <h3 className="font-inter font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight text-[#efefef]">
@@ -792,78 +793,79 @@ function HomeContent() {
               </h3>
             </div>
             
-            {/* Industry categories - Two Column Grid */}
-            <div className="grid grid-cols-2 gap-x-8 gap-y-4 mb-8">
+            {/* Industry categories - 2 Column Grid (All Screens) */}
+            <div className="grid grid-cols-2 gap-x-2 md:gap-x-8 gap-y-2 md:gap-y-4 mb-4 sm:mb-6 lg:mb-8 px-4 md:px-0 justify-items-start" style={{ gridTemplateColumns: '1fr 1fr' }}>
               {/* LEFT COLUMN */}
-              <div className="space-y-4">
-                <div className="flex items-center space-x-3 text-white">
-                  <img alt="Motorsport" className="w-8 h-8 flex-shrink-0" src={getImagePath("/svg-motorsport.svg")} />
-                  <span className="font-onest text-lg text-[#efefef]">{t('benefits.categories.motorsport')}</span>
+              <div className="space-y-2 md:space-y-4">
+                <div className="flex items-center space-x-2 md:space-x-3 text-white overflow-hidden">
+                  <img alt="Motorsport" className="w-6 h-6 md:w-8 md:h-8 flex-shrink-0" src={getImagePath("/svg-motorsport.svg")} />
+                  <span className="font-onest text-sm md:text-lg text-[#efefef]">{t('benefits.categories.motorsport')}</span>
                 </div>
-                <div className="flex items-center space-x-3 text-white">
-                  <img alt="Content creators" className="w-8 h-8 flex-shrink-0" src={getImagePath("/svg-content.svg")} />
-                  <span className="font-onest text-lg text-[#efefef]">{t('benefits.categories.contentCreators')}</span>
+                <div className="flex items-center space-x-2 md:space-x-3 text-white overflow-hidden">
+                  <img alt="Content creators" className="w-6 h-6 md:w-8 md:h-8 flex-shrink-0" src={getImagePath("/svg-content.svg")} />
+                  <span className="font-onest text-sm md:text-lg text-[#efefef]">{t('benefits.categories.contentCreators')}</span>
                 </div>
-                <div className="flex items-center space-x-3 text-white">
-                  <img alt="Golf athletes" className="w-8 h-8 flex-shrink-0" src={getImagePath("/svg-golf.svg")} />
-                  <span className="font-onest text-lg text-[#efefef]">{t('benefits.categories.golfAthletes')}</span>
+                <div className="flex items-center space-x-2 md:space-x-3 text-white overflow-hidden">
+                  <img alt="Golf athletes" className="w-6 h-6 md:w-8 md:h-8 flex-shrink-0" src={getImagePath("/svg-golf.svg")} />
+                  <span className="font-onest text-sm md:text-lg text-[#efefef]">{t('benefits.categories.golfAthletes')}</span>
                 </div>
-                <div className="flex items-center space-x-3 text-white">
-                  <img alt="Soccer teams" className="w-8 h-8 flex-shrink-0" src={getImagePath("/svg-soccer.svg")} />
-                  <span className="font-onest text-lg text-[#efefef]">{t('benefits.categories.soccerTeams')}</span>
+                <div className="flex items-center space-x-2 md:space-x-3 text-white overflow-hidden">
+                  <img alt="Soccer teams" className="w-6 h-6 md:w-8 md:h-8 flex-shrink-0" src={getImagePath("/svg-soccer.svg")} />
+                  <span className="font-onest text-sm md:text-lg text-[#efefef]">{t('benefits.categories.soccerTeams')}</span>
                 </div>
-                <div className="flex items-center space-x-3 text-white">
-                  <img alt="Personal brand" className="w-8 h-8 flex-shrink-0" src={getImagePath("/svg-personal.svg")} />
-                  <span className="font-onest text-lg text-[#efefef]">{t('benefits.categories.personalBrand')}</span>
+                <div className="flex items-center space-x-2 md:space-x-3 text-white overflow-hidden">
+                  <img alt="Personal brand" className="w-6 h-6 md:w-8 md:h-8 flex-shrink-0" src={getImagePath("/svg-personal.svg")} />
+                  <span className="font-onest text-sm md:text-lg text-[#efefef]">{t('benefits.categories.personalBrand')}</span>
                 </div>
               </div>
               
               {/* RIGHT COLUMN */}
-              <div className="space-y-4">
-                <div className="flex items-center space-x-3 text-white">
-                  <img alt="Real estate" className="w-8 h-8 flex-shrink-0" src={getImagePath("/svg-real.svg")} />
-                  <span className="font-onest text-lg text-[#efefef]">{t('benefits.categories.realEstate')}</span>
+              <div className="space-y-2 md:space-y-4">
+                <div className="flex items-center space-x-2 md:space-x-3 text-white overflow-hidden">
+                  <img alt="Real estate" className="w-6 h-6 md:w-8 md:h-8 flex-shrink-0" src={getImagePath("/svg-real.svg")} />
+                  <span className="font-onest text-sm md:text-lg text-[#efefef]">{t('benefits.categories.realEstate')}</span>
                 </div>
-                <div className="flex items-center space-x-3 text-white">
-                  <img alt="Models" className="w-8 h-8 flex-shrink-0" src={getImagePath("/svg-models.svg")} />
-                  <span className="font-onest text-lg text-[#efefef]">{t('benefits.categories.models')}</span>
+                <div className="flex items-center space-x-2 md:space-x-3 text-white overflow-hidden -ml-1 md:ml-0">
+                  <img alt="Models" className="w-6 h-6 md:w-8 md:h-8 flex-shrink-0" src={getImagePath("/svg-models.svg")} />
+                  <span className="font-onest text-sm md:text-lg text-[#efefef]">{t('benefits.categories.models')}</span>
                 </div>
-                <div className="flex items-center space-x-3 text-white">
-                  <img alt="Influencers" className="w-8 h-8 flex-shrink-0" src={getImagePath("/svg-influencer.svg")} />
-                  <span className="font-onest text-lg text-[#efefef]">{t('benefits.categories.influencers')}</span>
+                <div className="flex items-center space-x-2 md:space-x-3 text-white overflow-hidden">
+                  <img alt="Influencers" className="w-6 h-6 md:w-8 md:h-8 flex-shrink-0" src={getImagePath("/svg-influencer.svg")} />
+                  <span className="font-onest text-sm md:text-lg text-[#efefef]">{t('benefits.categories.influencers')}</span>
                 </div>
-                <div className="flex items-center space-x-3 text-white">
-                  <img alt="Car rentals" className="w-8 h-8 flex-shrink-0" src={getImagePath("/svg-car.svg")} />
-                  <span className="font-onest text-lg text-[#efefef]">{t('benefits.categories.carRentals')}</span>
+                <div className="flex items-center space-x-2 md:space-x-3 text-white overflow-hidden">
+                  <img alt="Car rentals" className="w-6 h-6 md:w-8 md:h-8 flex-shrink-0" src={getImagePath("/svg-car.svg")} />
+                  <span className="font-onest text-sm md:text-lg text-[#efefef]">{t('benefits.categories.carRentals')}</span>
                 </div>
-                <div className="flex items-center space-x-3 text-white">
-                  <img alt="Medical" className="w-8 h-8 flex-shrink-0" src={getImagePath("/svg-medical.svg")} />
-                  <span className="font-onest text-lg text-[#efefef]">{t('benefits.categories.medical')}</span>
+                <div className="flex items-center space-x-2 md:space-x-3 text-white overflow-hidden -ml-1 md:ml-0">
+                  <img alt="Medical" className="w-6 h-6 md:w-8 md:h-8 flex-shrink-0" src={getImagePath("/svg-medical.svg")} />
+                  <span className="font-onest text-sm md:text-lg text-[#efefef]">{t('benefits.categories.medical')}</span>
                 </div>
               </div>
             </div>
+
             
             {/* Social Media Logos - Responsive */}
-            <div className="flex items-center gap-4 lg:gap-5 mt-8 lg:mt-10">
+            <div className="flex items-center justify-center md:justify-start gap-2 md:gap-4 lg:gap-5 mt-0 sm:mt-4 md:mt-8 lg:mt-10 mb-6 md:mb-8 px-2 md:px-0">
               {/* Facebook Logo */}
               <img 
                 src={getImagePath("/Facebook.png")} 
                 alt="Facebook" 
-                className="h-6 sm:h-7 lg:h-8 w-auto"
+                className="w-14 h-14 sm:w-18 sm:h-18 md:w-auto md:h-7 lg:h-8 object-contain"
               />
               
               {/* Instagram Logo */}
               <img 
                 src={getImagePath("/Instagram.png")} 
                 alt="Instagram" 
-                className="h-6 sm:h-7 lg:h-8 w-auto"
+                className="w-14 h-14 sm:w-18 sm:h-18 md:w-auto md:h-7 lg:h-8 object-contain"
               />
               
               {/* YouTube Logo */}
               <img 
                 src={getImagePath("/YouTube.png")} 
                 alt="YouTube" 
-                className="h-6 sm:h-7 lg:h-8 w-auto"
+                className="w-14 h-14 sm:w-18 sm:h-18 md:w-auto md:h-7 lg:h-8 object-contain"
               />
             </div>
           </div>
@@ -873,7 +875,7 @@ function HomeContent() {
 
         {/* Section 3: What we do - Layer 3 */}
         <section className="sticky top-0 h-screen w-full" style={{ zIndex: 3, background: '#181818', minHeight: '100vh' }}>
-        <div className="max-w-7xl mx-auto h-full flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16 px-4 sm:px-8 lg:px-16 py-8">
+        <div className="max-w-7xl mx-auto h-full flex flex-col lg:flex-row items-center justify-between gap-4 sm:gap-8 lg:gap-16 px-4 sm:px-6 lg:px-16 py-8 sm:py-12 lg:py-16">
             {/* Left Content - Responsive */}
             <div className="text-white flex-1 max-w-2xl text-center lg:text-left">
               <h2 className="font-black leading-tight mb-5 text-white">
@@ -895,7 +897,7 @@ function HomeContent() {
               <div className="grid grid-cols-2 gap-3 sm:gap-4 mt-6 lg:mt-8 max-w-sm mx-auto lg:mx-0">
                   {/* Social Media Button */}
                   <button
-                    className={`transition-all duration-200 hover:scale-105 flex justify-center items-center rounded-full px-4 py-3 sm:px-6 sm:py-4 text-sm sm:text-base font-medium font-inter cursor-pointer ${
+                    className={`min-h-[44px] transition-all duration-200 hover:scale-105 flex justify-center items-center rounded-full px-4 py-3 sm:px-6 sm:py-4 text-sm sm:text-base font-medium font-inter cursor-pointer ${
                       activeService === 'Social Media' 
                         ? 'bg-[#EFEFEF] text-[#00B081] shadow-lg' 
                         : 'bg-[#00B081] text-black hover:shadow-md'
@@ -907,7 +909,7 @@ function HomeContent() {
 
                   {/* Website Button */}
                   <button
-                    className={`transition-all duration-200 hover:scale-105 flex justify-center items-center rounded-full px-4 py-3 sm:px-6 sm:py-4 text-sm sm:text-base font-medium font-inter cursor-pointer ${
+                    className={`min-h-[44px] transition-all duration-200 hover:scale-105 flex justify-center items-center rounded-full px-4 py-3 sm:px-6 sm:py-4 text-sm sm:text-base font-medium font-inter cursor-pointer ${
                       activeService === 'Website' 
                         ? 'bg-[#EFEFEF] text-[#00B081] shadow-lg' 
                         : 'bg-[#00B081] text-black hover:shadow-md'
@@ -919,7 +921,7 @@ function HomeContent() {
 
                   {/* Design Button */}
                   <button
-                    className={`transition-all duration-200 hover:scale-105 flex justify-center items-center rounded-full px-4 py-3 sm:px-6 sm:py-4 text-sm sm:text-base font-medium font-inter cursor-pointer ${
+                    className={`min-h-[44px] transition-all duration-200 hover:scale-105 flex justify-center items-center rounded-full px-4 py-3 sm:px-6 sm:py-4 text-sm sm:text-base font-medium font-inter cursor-pointer ${
                       activeService === 'Design' 
                         ? 'bg-[#EFEFEF] text-[#00B081] shadow-lg' 
                         : 'bg-[#00B081] text-black hover:shadow-md'
@@ -931,7 +933,7 @@ function HomeContent() {
 
                   {/* Press Button */}
                   <button
-                    className={`transition-all duration-200 hover:scale-105 flex justify-center items-center rounded-full px-4 py-3 sm:px-6 sm:py-4 text-sm sm:text-base font-medium font-inter cursor-pointer ${
+                    className={`min-h-[44px] transition-all duration-200 hover:scale-105 flex justify-center items-center rounded-full px-4 py-3 sm:px-6 sm:py-4 text-sm sm:text-base font-medium font-inter cursor-pointer ${
                       activeService === 'Press' 
                         ? 'bg-[#EFEFEF] text-[#00B081] shadow-lg' 
                         : 'bg-[#00B081] text-black hover:shadow-md'
@@ -1000,7 +1002,7 @@ function HomeContent() {
             minHeight: '100vh'
           }}
         >
-        <div className="max-w-6xl mx-auto h-full flex items-center justify-center px-4 sm:px-8 lg:px-16 py-8">
+        <div className="max-w-6xl mx-auto h-full flex items-center justify-center px-4 sm:px-6 lg:px-16 py-8 sm:py-12 lg:py-16">
         <div className="bg-[#181818] rounded-3xl lg:rounded-[84px] p-8 sm:p-12 lg:p-16 xl:p-20 shadow-2xl flex flex-col items-center gap-8 lg:gap-12">
           {/* Main Title - Responsive */}
           <div className="text-center">
@@ -1075,7 +1077,7 @@ function HomeContent() {
             </div>
 
             {/* Mobile Arrow 1 */}
-            <div className="transform rotate-90">
+            <div className="transform rotate-90 hidden">
               <svg width="40" height="30" viewBox="0 0 40 30" className="sm:w-16 sm:h-12">
                 <path 
                   d="M5 25 Q 20 5, 35 25" 
@@ -1098,7 +1100,7 @@ function HomeContent() {
             </div>
 
             {/* Mobile Arrow 2 */}
-            <div className="transform rotate-90">
+            <div className="transform rotate-90 hidden">
               <svg width="40" height="30" viewBox="0 0 40 30" className="sm:w-16 sm:h-12">
                 <path 
                   d="M5 25 Q 20 5, 35 25" 
@@ -1126,7 +1128,7 @@ function HomeContent() {
 
       {/* Section 5: Testimonials - Layer 5 */}
       <section className="sticky top-0 h-screen w-full" style={{ zIndex: 5, background: '#007B79', minHeight: '100vh' }}>
-        <div className="h-full flex flex-col justify-center py-8">
+        <div className="h-full flex flex-col justify-center py-6 overflow-hidden">
           {/* Header Section - Constrained */}
           <div className="px-4 sm:px-8 lg:px-16 max-w-7xl mx-auto w-full">
             <div className="w-full flex flex-col items-center gap-6 lg:gap-8">
@@ -1156,29 +1158,30 @@ function HomeContent() {
             <div className="absolute -top-12 sm:-top-16 right-4 sm:right-8 lg:right-16 flex gap-2 sm:gap-3 z-10">
               {/* Left Arrow Button - Responsive */}
               <button
-                className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full border-none cursor-pointer flex items-center justify-center transition-all duration-200 text-[#EFEFEF]"
+                className="min-w-[44px] min-h-[44px] w-11 h-11 sm:w-12 sm:h-12 lg:w-14 lg:h-14 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full border-none cursor-pointer flex items-center justify-center transition-all duration-200 text-[#EFEFEF]"
                 onClick={handlePrevious}
               >
-                <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
+                <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7" />
               </button>
               
               {/* Right Arrow Button - Responsive */}
               <button
-                className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full border-none cursor-pointer flex items-center justify-center transition-all duration-200 text-[#EFEFEF]"
+                className="min-w-[44px] min-h-[44px] w-11 h-11 sm:w-12 sm:h-12 lg:w-14 lg:h-14 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full border-none cursor-pointer flex items-center justify-center transition-all duration-200 text-[#EFEFEF]"
                 onClick={handleNext}
               >
-                <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
+                <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7" />
               </button>
             </div>
 
             {/* Natural Viewport-Based Carousel Container */}
             <div 
-              className="relative overflow-x-auto overflow-y-visible scrollbar-hide"
+              className="relative overflow-x-hidden overflow-y-hidden scrollbar-hide"
               style={{
                 width: '100vw',
                 marginLeft: '50%',
                 transform: 'translateX(-50%)',
-                WebkitOverflowScrolling: 'touch', // Momentum scrolling for mobile
+                WebkitOverflowScrolling: 'touch',
+                touchAction: 'pan-y',
                 paddingLeft: '2rem',
                 paddingRight: '2rem'
               }}
@@ -1246,22 +1249,273 @@ function HomeContent() {
         </div>
         </section>
 
-        {/* Section 6: Interaction - Final layer (NOT sticky) */}
+        {/* Section 6: Team - Layer 6 */}
+        <section className="sticky top-0 h-screen w-full" style={{ zIndex: 6, backgroundImage: `url(${getImagePath('/answers-section-bg-teal-vectorized.png')})`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
+          <div className="h-full flex flex-col justify-center py-8 px-4 sm:py-12 sm:px-8 lg:py-16 lg:px-16">
+            
+            {/* Title - Always visible at top on all devices */}
+            <div className="text-center mb-8 lg:mb-12">
+              <h2 className="font-inter font-black text-2xl sm:text-3xl lg:text-5xl xl:text-6xl text-[#181818]">
+                {t('team.title')}
+              </h2>
+            </div>
+            
+            {/* Mobile: Horizontal Slider (< lg) */}
+            <div className="flex-1 flex items-center lg:hidden">
+              <div className="w-full overflow-x-auto snap-x snap-mandatory scrollbar-hide flex gap-4 px-4">
+                
+                {/* Team Member 1 */}
+                <div className="shrink-0 w-11/12 max-w-sm snap-center bg-white rounded-2xl p-6 shadow-lg">
+                  <div className="w-24 h-24 mx-auto mb-4">
+                    <img 
+                      src={getImagePath("/team-pascal.png")} 
+                      alt="Pascal Delorantis"
+                      className="w-full h-full rounded-full object-cover"
+                    />
+                  </div>
+                  <h3 className="text-xl font-bold text-[#181818] text-center mb-1">
+                    {t('team.members.pascal.name')}
+                  </h3>
+                  <p className="text-base text-[#007B79] text-center mb-3">
+                    {t('team.members.pascal.role')}
+                  </p>
+                  <div className="text-sm text-gray-600 text-center mb-4">
+                    <p className={expandedBios[1] ? '' : 'line-clamp-3'}>
+                      {t('team.members.pascal.bio')}
+                    </p>
+                    <button 
+                      onClick={() => setExpandedBios(prev => ({ ...prev, 1: !prev[1] }))}
+                      className="text-[#007B79] underline text-sm mt-1 hover:text-[#006666] transition"
+                    >
+                      {expandedBios[1] ? t('team.readLess') : t('team.readMore')}
+                    </button>
+                  </div>
+                  <div className="flex justify-center gap-3">
+                    <a href="https://linkedin.com/in/johndoe" className="w-14 h-14 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
+                      <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="mailto:john@hupscale.com" className="w-14 h-14 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
+                      <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
+                    </a>
+                  </div>
+                </div>
+                
+                {/* Team Member 2 */}
+                <div className="shrink-0 w-11/12 max-w-sm snap-center bg-white rounded-2xl p-6 shadow-lg">
+                  <div className="w-24 h-24 mx-auto mb-4">
+                    <img 
+                      src={getImagePath("/team-rodney.jpg")} 
+                      alt="Rodney ONANGA"
+                      className="w-full h-full rounded-full object-cover"
+                    />
+                  </div>
+                  <h3 className="text-xl font-bold text-[#181818] text-center mb-1">
+                    {t('team.members.rodney.name')}
+                  </h3>
+                  <p className="text-base text-[#007B79] text-center mb-3">
+                    {t('team.members.rodney.role')}
+                  </p>
+                  <div className="text-sm text-gray-600 text-center mb-4">
+                    <p className={expandedBios[2] ? '' : 'line-clamp-3'}>
+                      {t('team.members.rodney.bio')}
+                    </p>
+                    <button 
+                      onClick={() => setExpandedBios(prev => ({ ...prev, 2: !prev[2] }))}
+                      className="text-[#007B79] underline text-sm mt-1 hover:text-[#006666] transition"
+                    >
+                      {expandedBios[2] ? t('team.readLess') : t('team.readMore')}
+                    </button>
+                  </div>
+                  <div className="flex justify-center gap-3">
+                    <a href="https://linkedin.com/in/janesmith" className="w-14 h-14 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
+                      <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="mailto:jane@hupscale.com" className="w-14 h-14 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
+                      <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
+                    </a>
+                  </div>
+                </div>
+                
+                {/* Team Member 3 */}
+                <div className="shrink-0 w-11/12 max-w-sm snap-center bg-white rounded-2xl p-6 shadow-lg">
+                  <div className="w-24 h-24 mx-auto mb-4">
+                    <img 
+                      src={getImagePath("/team-leandro.jpeg")} 
+                      alt="Leandro Schmidt"
+                      className="w-full h-full rounded-full object-cover"
+                    />
+                  </div>
+                  <h3 className="text-xl font-bold text-[#181818] text-center mb-1">
+                    {t('team.members.leandro.name')}
+                  </h3>
+                  <p className="text-base text-[#007B79] text-center mb-3">
+                    {t('team.members.leandro.role')}
+                  </p>
+                  <div className="text-sm text-gray-600 text-center mb-4">
+                    <p className={expandedBios[3] ? '' : 'line-clamp-3'}>
+                      {t('team.members.leandro.bio')}
+                    </p>
+                    <button 
+                      onClick={() => setExpandedBios(prev => ({ ...prev, 3: !prev[3] }))}
+                      className="text-[#007B79] underline text-sm mt-1 hover:text-[#006666] transition"
+                    >
+                      {expandedBios[3] ? t('team.readLess') : t('team.readMore')}
+                    </button>
+                  </div>
+                  <div className="flex justify-center gap-3">
+                    <a href="https://linkedin.com/in/mikejohnson" className="w-14 h-14 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
+                      <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="mailto:mike@hupscale.com" className="w-14 h-14 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
+                      <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
+                    </a>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+            {/* Desktop: Horizontal Row (>= lg) */}
+            <div className="hidden lg:flex flex-1 items-center justify-center">
+              <div className="flex gap-8 max-w-7xl mx-auto">
+                
+                {/* Team Member 1 */}
+                <div className="bg-white rounded-2xl p-6 shadow-lg w-full max-w-sm">
+                  <div className="w-32 h-32 mx-auto mb-4">
+                    <img 
+                      src={getImagePath("/team-pascal.png")} 
+                      alt="Pascal Delorantis"
+                      className="w-full h-full rounded-full object-cover"
+                    />
+                  </div>
+                  <h3 className="text-2xl font-bold text-[#181818] text-center mb-1">
+                    {t('team.members.pascal.name')}
+                  </h3>
+                  <p className="text-lg text-[#007B79] text-center mb-3">
+                    {t('team.members.pascal.role')}
+                  </p>
+                  <div className="text-base text-gray-600 text-center mb-4">
+                    <p className={expandedBios[1] ? '' : 'line-clamp-3'}>
+                      {t('team.members.pascal.bio')}
+                    </p>
+                    <button 
+                      onClick={() => setExpandedBios(prev => ({ ...prev, 1: !prev[1] }))}
+                      className="text-[#007B79] underline text-sm mt-1 hover:text-[#006666] transition"
+                    >
+                      {expandedBios[1] ? t('team.readLess') : t('team.readMore')}
+                    </button>
+                  </div>
+                  <div className="flex justify-center gap-3">
+                    <a href="https://linkedin.com/in/johndoe" className="w-11 h-11 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
+                      <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="mailto:john@hupscale.com" className="w-11 h-11 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
+                      <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
+                    </a>
+                  </div>
+                </div>
+                
+                {/* Team Member 2 */}
+                <div className="bg-white rounded-2xl p-6 shadow-lg w-full max-w-sm">
+                  <div className="w-32 h-32 mx-auto mb-4">
+                    <img 
+                      src={getImagePath("/team-rodney.jpg")} 
+                      alt="Rodney ONANGA"
+                      className="w-full h-full rounded-full object-cover"
+                    />
+                  </div>
+                  <h3 className="text-2xl font-bold text-[#181818] text-center mb-1">
+                    {t('team.members.rodney.name')}
+                  </h3>
+                  <p className="text-lg text-[#007B79] text-center mb-3">
+                    {t('team.members.rodney.role')}
+                  </p>
+                  <div className="text-base text-gray-600 text-center mb-4">
+                    <p className={expandedBios[2] ? '' : 'line-clamp-3'}>
+                      {t('team.members.rodney.bio')}
+                    </p>
+                    <button 
+                      onClick={() => setExpandedBios(prev => ({ ...prev, 2: !prev[2] }))}
+                      className="text-[#007B79] underline text-sm mt-1 hover:text-[#006666] transition"
+                    >
+                      {expandedBios[2] ? t('team.readLess') : t('team.readMore')}
+                    </button>
+                  </div>
+                  <div className="flex justify-center gap-3">
+                    <a href="https://linkedin.com/in/janesmith" className="w-11 h-11 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
+                      <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="mailto:jane@hupscale.com" className="w-11 h-11 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
+                      <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
+                    </a>
+                  </div>
+                </div>
+                
+                {/* Team Member 3 */}
+                <div className="bg-white rounded-2xl p-6 shadow-lg w-full max-w-sm">
+                  <div className="w-32 h-32 mx-auto mb-4">
+                    <img 
+                      src={getImagePath("/team-leandro.jpeg")} 
+                      alt="Leandro Schmidt"
+                      className="w-full h-full rounded-full object-cover"
+                    />
+                  </div>
+                  <h3 className="text-2xl font-bold text-[#181818] text-center mb-1">
+                    {t('team.members.leandro.name')}
+                  </h3>
+                  <p className="text-lg text-[#007B79] text-center mb-3">
+                    {t('team.members.leandro.role')}
+                  </p>
+                  <div className="text-base text-gray-600 text-center mb-4">
+                    <p className={expandedBios[3] ? '' : 'line-clamp-3'}>
+                      {t('team.members.leandro.bio')}
+                    </p>
+                    <button 
+                      onClick={() => setExpandedBios(prev => ({ ...prev, 3: !prev[3] }))}
+                      className="text-[#007B79] underline text-sm mt-1 hover:text-[#006666] transition"
+                    >
+                      {expandedBios[3] ? t('team.readLess') : t('team.readMore')}
+                    </button>
+                  </div>
+                  <div className="flex justify-center gap-3">
+                    <a href="https://linkedin.com/in/mikejohnson" className="w-11 h-11 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
+                      <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="mailto:mike@hupscale.com" className="w-11 h-11 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
+                      <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
+                    </a>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+          </div>
+        </section>
+
+        {/* Section 7: Interaction - Final layer (NOT sticky) */}
         <section 
-          className="relative w-full flex items-center justify-center lg:justify-end px-4 sm:px-8 lg:px-16 xl:px-24" 
+          className="relative w-full overflow-hidden flex items-center justify-center lg:justify-end px-4 sm:px-8 lg:px-16 xl:px-24 py-12 sm:py-16 lg:py-20" 
           style={{ 
-            zIndex: 6,
+            zIndex: 7,
             minHeight: '100vh',
-            background: '#F5F5F5',
-            backgroundImage: `url(${getImagePath('/hupscale_final_hd.png')})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
+            background: '#F5F5F5'
           }}
         >
         
+        {/* Background Video */}
+        <video
+          src={getImagePath("/video_upscaled_4k.mp4")}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute top-0 left-0 w-full h-full object-cover"
+          style={{ zIndex: 0 }}
+        />
+        
         {/* Text content overlay - Responsive */}
-        <div className="text-center lg:text-right text-white max-w-2xl">
+        <div className="relative text-center lg:text-right text-white max-w-2xl" style={{ zIndex: 1 }}>
           <h1 className="font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-4 lg:mb-5 leading-tight" style={{
             textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
           }}>
@@ -1273,7 +1527,7 @@ function HomeContent() {
 {t('interaction.heading2.your')} <span style={{ color: '#007B79' }}>{t('interaction.heading2.business')}</span>
           </p>
           
-          <button className="bg-[#007B79] text-white border-none rounded-full px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold cursor-pointer uppercase shadow-lg hover:shadow-xl transition-all duration-200">
+          <button className="bg-[#007B79] text-white border-none rounded-full px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold cursor-pointer uppercase shadow-lg hover:shadow-xl transition-all duration-200 min-h-[44px] min-w-[44px]">
             {t('interaction.cta')}
           </button>
         </div>
@@ -1308,7 +1562,7 @@ function HomeContent() {
             {getFaqs().map((item, i) => (
               <div key={i}>
                 <div
-                  className="flex items-center gap-3 lg:gap-4 cursor-pointer py-2"
+                  className="flex items-center justify-center md:justify-start gap-3 lg:gap-4 cursor-pointer py-2"
                   onClick={() => setOpenFaqIdx(openFaqIdx === i ? null : i)}
                 >
                   {/* Custom Plus/Minus Icon - Responsive */}
@@ -1320,12 +1574,12 @@ function HomeContent() {
                       <div className="absolute w-0.5 h-3 sm:h-4 bg-[#232323] rounded-sm" />
                     )}
                   </div>
-                  <span className="font-onest text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold text-[#232323] flex-1">
+                  <span className="font-onest text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold text-[#232323] flex-1 text-center md:text-left">
                     {item.q}
                   </span>
                 </div>
                 {openFaqIdx === i && item.a && (
-                  <div className="font-onest text-base sm:text-lg lg:text-xl xl:text-2xl text-white max-w-full w-full ml-8 sm:ml-12 mt-2 mb-4 lg:mb-6 leading-relaxed break-words">
+                  <div className="font-onest text-base sm:text-lg lg:text-xl xl:text-2xl text-white max-w-full w-full ml-0 md:ml-8 lg:ml-12 mt-2 mb-4 lg:mb-6 leading-relaxed break-words text-center md:text-left">
                     {item.a}
                   </div>
                 )}

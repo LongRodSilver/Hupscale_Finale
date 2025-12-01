@@ -193,6 +193,28 @@
       "information": "We only require the essential information that any agency might need, such as your target audience, your current audience, your goals, and how we can help you achieve them. Hupscale or any member of our staff will never ask for your username or password."
     }
   },
+  "team": {
+    "title": "The Team",
+    "readMore": "Read more",
+    "readLess": "Read less",
+    "members": {
+      "pascal": {
+        "name": "Pascal Delorantis",
+        "role": "CEO",
+        "bio": "Visionary leader with 10+ years of experience in digital marketing and scaling ambitious brands. Pascal is passionate about building teams and delivering innovation to help clients grow through strategic thinking."
+      },
+      "rodney": {
+        "name": "Rodney ONANGA",
+        "role": "CMO",
+        "bio": "A tech wizard with 17 years of experience, Rodney specializes in programming, startups, AI, and new technology. He develops web apps, AI assistants, and digital products, actively driving innovation with curiosity and expertise."
+      },
+      "leandro": {
+        "name": "Leandro Schmidt",
+        "role": "Latin America Manager",
+        "bio": "Based in Argentina, Leandro manages our Latin American presence with professionalism, dedication, and strong client relationships. His experience spans diverse industries, building trusted partnerships across the region. Fluent in English, he bridges Latin America with global clients and projects."
+      }
+    }
+  },
   "cta": {
     "heading": "TAKE YOUR ASTEROIDS AND SCALE YOUR VISION",
     "contactText": "you can also contact us directly",

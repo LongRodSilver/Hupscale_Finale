@@ -193,6 +193,28 @@
       "information": "Nous n'exigeons que les informations essentielles dont toute agence pourrait avoir besoin, comme votre audience cible, votre audience actuelle, vos objectifs, et comment nous pouvons vous aider à les atteindre. Hupscale ou tout membre de notre personnel ne demandera jamais votre nom d'utilisateur ou mot de passe."
     }
   },
+  "team": {
+    "title": "L'Équipe",
+    "readMore": "Lire plus",
+    "readLess": "Lire moins",
+    "members": {
+      "pascal": {
+        "name": "Pascal Delorantis",
+        "role": "PDG",
+        "bio": "Leader visionnaire avec plus de 10 ans d'expérience en marketing digital et développement de marques ambitieuses. Pascal est passionné par la création d'équipes et la fourniture d'innovation pour aider les clients à croître grâce à la pensée stratégique."
+      },
+      "rodney": {
+        "name": "Rodney ONANGA",
+        "role": "Directeur Marketing",
+        "bio": "Un génie de la technologie avec 17 ans d'expérience, Rodney se spécialise dans la programmation, les startups, l'IA et les nouvelles technologies. Il développe des applications web, des assistants IA et des produits numériques, stimulant activement l'innovation avec curiosité et expertise."
+      },
+      "leandro": {
+        "name": "Leandro Schmidt",
+        "role": "Responsable Amérique Latine",
+        "bio": "Basé en Argentine, Leandro gère notre présence en Amérique latine avec professionnalisme, dévouement et solides relations clients. Son expérience couvre diverses industries, établissant des partenariats de confiance à travers la région. Parlant couramment anglais, il fait le pont entre l'Amérique latine et les clients et projets mondiaux."
+      }
+    }
+  },
   "cta": {
     "heading": "PRENEZ VOS ASTÉROÏDES ET DÉVELOPPEZ VOTRE VISION",
     "contactText": "vous pouvez aussi nous contacter directement",
