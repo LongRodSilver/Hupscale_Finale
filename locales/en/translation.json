@@ -33,10 +33,10 @@
       "soccerTeams": "Soccer teams",
       "personalBrand": "Personal brand",
       "realEstate": "Real estate",
-      "models": "Models",
+      "models": "Top Models",
       "influencers": "Influencers",
       "carRentals": "Car rentals",
-      "medical": "Medical"
+      "medical": "Health Gurus"
     }
   },
   "services": {
@@ -56,30 +56,30 @@
     "socialMedia": {
       "title": "Social Media",
       "boostAI": {
-        "label": "Boost AI:",
+        "label": "Content Amplification:",
         "description": " Hupscale helps you upscale your content — smarter reach, more freedom."
       },
       "engagementGroups": {
-        "label": "Engagement Groups:",
+        "label": "Community Building:",
         "description": " Upscale your community with Hupscale — connect, grow, repeat."
       },
       "communityManager": {
-        "label": "Community Manager:",
+        "label": "Social Media Management:",
         "description": " Your life is offline. Hupscale keeps your presence upscale — always on point."
       }
     },
     "website": {
       "title": "Website",
       "landingPage": {
-        "label": "Landing Page:",
+        "label": "Lead Generation Pages:",
         "description": " Convert visitors into customers with high-impact pages designed to drive action."
       },
       "corporativeWeb": {
-        "label": "Corporative Web:",
+        "label": "Enterprise Websites:",
         "description": " Professional websites that establish credibility and showcase your business excellence."
       },
       "ecommerce": {
-        "label": "E-commerce:",
+        "label": "Online Shop Development:",
         "description": " Complete online stores optimized for sales, user experience, and growth."
       }
     },
@@ -157,14 +157,14 @@
       "rachel": "Rachel T.",
       "marcus": "Marcus D.",
       "emma": "Emma K.",
-      "paul": "Paul T."
+      "paul": "G aka AF"
     },
     "reviews": {
       "sarah": "I was struggling to get traction for my coaching business until I found Hupscale. Within three months, my client base tripled and my revenue doubled. Their strategies are simple but incredibly effective. If you want real results, not just promises, this is your team!",
       "rachel": "Hupscale transformed my content strategy completely! I went from posting randomly to having a clear plan that actually converts. My email list grew from 200 to 5,000 subscribers in just four months. The team really understands what it takes to scale a business!",
       "marcus": "As a small business owner, I thought growth was out of reach. Hupscale proved me wrong. They helped me streamline my processes and reach customers I never thought possible. My sales increased by 150% in six months. Absolutely worth every penny!",
       "emma": "I've worked with several agencies before, but Hupscale is different. They actually care about your success. My brand visibility skyrocketed, and I finally feel confident in my business direction. The results speak for themselves—my best investment this year!",
-      "paul": "Hupscale transformed my business completely! I went from struggling to scale to generating six-figure revenue in just four months. Their strategies are practical and powerful. If you're ready to take your business to the next level, Hupscale is the team you need!"
+      "paul": "I have been in 1-to-1 coaching with Scalpa for 3 and a half years now. I have learned so much that has allowed me to scale my business and triple my revenue. I'm not planning to stop there! Very satisfied with the work done."
     }
   },
   "interaction": {
@@ -199,14 +199,19 @@
     "readLess": "Read less",
     "members": {
       "pascal": {
-        "name": "Pascal Delorantis",
-        "role": "CEO",
+        "name": "Scalpa Delorantis",
+        "role": "Social Media PR",
         "bio": "Visionary leader with 10+ years of experience in digital marketing and scaling ambitious brands. Pascal is passionate about building teams and delivering innovation to help clients grow through strategic thinking."
       },
       "rodney": {
-        "name": "Rodney ONANGA",
-        "role": "CMO",
+        "name": "Rodney Onanga",
+        "role": "CTO",
         "bio": "A tech wizard with 17 years of experience, Rodney specializes in programming, startups, AI, and new technology. He develops web apps, AI assistants, and digital products, actively driving innovation with curiosity and expertise."
+      },
+      "frederic": {
+        "name": "Frédéric Cordat",
+        "role": "Chief Digital Officer",
+        "bio": "Fred is our Chief Digital Officer. He is brilliant and well travelled. He speaks fluently French, English and Japanese."
       },
       "leandro": {
         "name": "Leandro Schmidt",
@@ -216,9 +221,9 @@
     }
   },
   "cta": {
-    "heading": "TAKE YOUR ASTEROIDS AND SCALE YOUR VISION",
+    "heading": "TIP THE SCALES IN YOUR FAVOR",
     "contactText": "you can also contact us directly",
-    "email": "hello@hupscaleagency.com",
+    "email": "hello@hupscale.com",
     "button": "Let's Hupscale"
   },
   "footer": {

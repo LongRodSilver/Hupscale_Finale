@@ -33,10 +33,10 @@
       "soccerTeams": "Équipes de football",
       "personalBrand": "Marque personnelle",
       "realEstate": "Immobilier",
-      "models": "Mannequins",
+      "models": "Top Modèles",
       "influencers": "Influenceurs",
       "carRentals": "Location de voitures",
-      "medical": "Médical"
+      "medical": "Gourous de la Santé"
     }
   },
   "services": {
@@ -56,30 +56,30 @@
     "socialMedia": {
       "title": "Médias Sociaux",
       "boostAI": {
-        "label": "Boost IA:",
+        "label": "Amplification de Contenu:",
         "description": " Hupscale vous aide à développer votre contenu — portée plus intelligente, plus de liberté."
       },
       "engagementGroups": {
-        "label": "Groupes d'Engagement:",
+        "label": "Construction de Communauté:",
         "description": " Développez votre communauté avec Hupscale — connectez, grandissez, répétez."
       },
       "communityManager": {
-        "label": "Gestionnaire Communauté:",
+        "label": "Gestion des Médias Sociaux:",
         "description": " Votre vie est hors ligne. Hupscale maintient votre présence haut de gamme — toujours au point."
       }
     },
     "website": {
       "title": "Site Web",
       "landingPage": {
-        "label": "Page d'Atterrissage:",
+        "label": "Pages de Génération de Leads:",
         "description": " Convertissez les visiteurs en clients avec des pages à fort impact conçues pour inciter à l'action."
       },
       "corporativeWeb": {
-        "label": "Web Corporatif:",
+        "label": "Sites Web d'Entreprise:",
         "description": " Sites web professionnels qui établissent la crédibilité et mettent en valeur l'excellence de votre entreprise."
       },
       "ecommerce": {
-        "label": "E-commerce:",
+        "label": "Développement de Boutique en Ligne:",
         "description": " Boutiques en ligne complètes optimisées pour les ventes, l'expérience utilisateur et la croissance."
       }
     },
@@ -157,14 +157,14 @@
       "rachel": "Rachel T.",
       "marcus": "Marcus D.",
       "emma": "Emma K.",
-      "paul": "Paul T."
+      "paul": "G aka AF"
     },
     "reviews": {
       "sarah": "J'avais du mal à obtenir de la traction pour mon entreprise de coaching jusqu'à ce que je trouve Hupscale. En trois mois, ma clientèle a triplé et mes revenus ont doublé. Leurs stratégies sont simples mais incroyablement efficaces. Si vous voulez de vrais résultats, pas seulement des promesses, c'est votre équipe!",
       "rachel": "Hupscale a complètement transformé ma stratégie de contenu! Je suis passée de publications aléatoires à un plan clair qui convertit réellement. Ma liste d'emails est passée de 200 à 5 000 abonnés en seulement quatre mois. L'équipe comprend vraiment ce qu'il faut pour développer une entreprise!",
       "marcus": "En tant que propriétaire de petite entreprise, je pensais que la croissance était hors de portée. Hupscale m'a prouvé le contraire. Ils m'ont aidé à rationaliser mes processus et à atteindre des clients que je n'aurais jamais pensé possibles. Mes ventes ont augmenté de 150% en six mois. Ça vaut vraiment chaque centime!",
       "emma": "J'ai travaillé avec plusieurs agences auparavant, mais Hupscale est différent. Ils se soucient vraiment de votre succès. La visibilité de ma marque a explosé, et je me sens enfin confiante dans la direction de mon entreprise. Les résultats parlent d'eux-mêmes — mon meilleur investissement cette année!",
-      "paul": "Hupscale a complètement transformé mon entreprise! Je suis passé de la difficulté à développer à générer des revenus à six chiffres en seulement quatre mois. Leurs stratégies sont pratiques et puissantes. Si vous êtes prêt à amener votre entreprise au niveau supérieur, Hupscale est l'équipe dont vous avez besoin!"
+      "paul": "Je suis en coaching 1 to 1 avec Scalpa depuis maintenant 3 ans et demi j'ai appris beaucoup de choses qui m'ont permis de scaler mon business et de tripler mes revenus je ne compte pas m'arrêter là ! très satisfait du travail effectué."
     }
   },
   "interaction": {
@@ -199,14 +199,19 @@
     "readLess": "Lire moins",
     "members": {
       "pascal": {
-        "name": "Pascal Delorantis",
-        "role": "PDG",
+        "name": "Scalpa Delorantis",
+        "role": "Responsable Médias Sociaux",
         "bio": "Leader visionnaire avec plus de 10 ans d'expérience en marketing digital et développement de marques ambitieuses. Pascal est passionné par la création d'équipes et la fourniture d'innovation pour aider les clients à croître grâce à la pensée stratégique."
       },
       "rodney": {
-        "name": "Rodney ONANGA",
-        "role": "Directeur Marketing",
+        "name": "Rodney Onanga",
+        "role": "Directeur Technique",
         "bio": "Un génie de la technologie avec 17 ans d'expérience, Rodney se spécialise dans la programmation, les startups, l'IA et les nouvelles technologies. Il développe des applications web, des assistants IA et des produits numériques, stimulant activement l'innovation avec curiosité et expertise."
+      },
+      "frederic": {
+        "name": "Frédéric Cordat",
+        "role": "Directeur du Numérique",
+        "bio": "Fred est notre Directeur du Numérique. Il est brillant et a beaucoup voyagé. Il parle couramment français, anglais et japonais."
       },
       "leandro": {
         "name": "Leandro Schmidt",
@@ -216,9 +221,9 @@
     }
   },
   "cta": {
-    "heading": "PRENEZ VOS ASTÉROÏDES ET DÉVELOPPEZ VOTRE VISION",
+    "heading": "FAITES PENCHER LA BALANCE EN VOTRE FAVEUR",
     "contactText": "vous pouvez aussi nous contacter directement",
-    "email": "hello@hupscaleagency.com",
+    "email": "hello@hupscale.com",
     "button": "Hupscalons"
   },
   "footer": {
