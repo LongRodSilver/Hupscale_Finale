@@ -171,7 +171,7 @@ function HomeContent() {
     {
       id: 5,
       name: t('testimonials.customers.paul'),
-      image: "/Paul-T.jpeg",
+      image: "/paul-avatar.jpg",
       text: t('testimonials.reviews.paul')
     }
   ];
@@ -418,6 +418,11 @@ function HomeContent() {
         <button 
           className="md:hidden flex items-center justify-center mobile-menu-button text-[rgb(35,35,35)]" 
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          style={{
+            marginLeft: 'auto',
+            zIndex: 10001,
+            position: 'relative'
+          }}
         >
           <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
             <path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd" />
@@ -602,127 +607,127 @@ function HomeContent() {
         </div>
         
         {/* Get Started Button - Responsive */}
-        <button
-          className="hidden md:block bg-[rgb(0,123,121)] text-[rgb(5,5,5)] border border-[rgb(5,5,5)] rounded-full px-4 lg:px-5 py-2 lg:py-3 text-xs lg:text-sm font-medium font-inter cursor-pointer transition-all duration-200 shadow-sm whitespace-nowrap"
+        <a
+          href="mailto:hello@hupscale.com"
+          className="hidden md:block bg-[rgb(0,123,121)] text-[rgb(5,5,5)] border border-[rgb(5,5,5)] rounded-full px-4 lg:px-5 py-2 lg:py-3 text-xs lg:text-sm font-medium font-inter cursor-pointer transition-all duration-200 shadow-sm whitespace-nowrap no-underline inline-block text-center"
           style={{ marginLeft: '12px', fontSize: '13px', fontFamily: 'LEMONMILK, Morgan, sans-serif' }}
-          onClick={() => {
-            setTimeout(() => {
-              window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-            }, 100);
-          }}
         >
           {t('navigation.getStarted')}
-        </button>
-        
-        {/* Mobile Menu Overlay */}
-        {isMobileMenuOpen && (
-          <div 
-            className="mobile-menu-overlay md:hidden fixed inset-0 bg-black bg-opacity-50 z-[9998]"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            <div 
-              className="fixed top-20 left-4 right-4 bg-white rounded-2xl p-6 shadow-xl"
-              style={{ maxWidth: 'calc(100vw - 32px)', zIndex: 9999 }}
-              onClick={(e) => e.stopPropagation()}
-            > 
-              <div className="flex flex-col space-y-4">
-                <button
-                  className="text-left min-h-[44px] py-3 px-4 text-[rgb(35,35,35)] hover:bg-gray-100 rounded-lg"
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    setTimeout(() => {
-                      window.scrollTo({ top: window.innerHeight * 1, behavior: 'smooth' });
-                    }, 100);
-                  }}
-                >
-                  {t('navigation.benefits')}
-                </button>
-                <button
-                  className="text-left min-h-[44px] py-3 px-4 text-[rgb(35,35,35)] hover:bg-gray-100 rounded-lg"
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    setTimeout(() => {
-                      window.scrollTo({ top: window.innerHeight * 2, behavior: 'smooth' });
-                    }, 100);
-                  }}
-                >
-                  {t('navigation.services')}
-                </button>
-                <button
-                  className="text-left min-h-[44px] py-3 px-4 text-[rgb(35,35,35)] hover:bg-gray-100 rounded-lg"
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    setTimeout(() => {
-                      window.scrollTo({ top: window.innerHeight * 4, behavior: 'smooth' });
-                    }, 100);
-                  }}
-                >
-                  {t('navigation.testimonials')}
-                </button>
-                <button
-                  className="text-left min-h-[44px] py-3 px-4 text-[rgb(35,35,35)] hover:bg-gray-100 rounded-lg"
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    setTimeout(() => {
-                      window.scrollTo({ top: window.innerHeight * 6, behavior: 'smooth' });
-                    }, 100);
-                  }}
-                >
-                  {t('navigation.faqs')}
-                </button>
-                
-                {/* Language Toggle Buttons - Mobile */}
-                <div className="flex items-center justify-center gap-2 mt-4">
-                  {/* French Flag Button */}
-                  <button
-                    aria-label={t('navigation.switchToFrench')}
-                    className={`w-10 h-10 rounded-full border-0 bg-white flex items-center justify-center transition-all duration-200 hover:scale-110 hover:bg-gray-50 cursor-pointer shadow-sm ${
-                      language === 'fr' ? 'ring-2 ring-[#007B79] ring-offset-2' : ''
-                    }`}
-                    onClick={() => setLanguage('fr')}
-                  >
-                    <svg width="24" height="24" viewBox="0 0 24 18" className="w-6 h-4">
-                      <rect x="0" y="0" width="8" height="18" fill="#002395"/>
-                      <rect x="8" y="0" width="8" height="18" fill="#FFFFFF"/>
-                      <rect x="16" y="0" width="8" height="18" fill="#ED2939"/>
-                    </svg>
-                  </button>
-                  
-                  {/* British Flag Button */}
-                  <button
-                    aria-label={t('navigation.switchToEnglish')}
-                    className={`w-10 h-10 rounded-full border-0 bg-white flex items-center justify-center transition-all duration-200 hover:scale-110 hover:bg-gray-50 cursor-pointer shadow-sm ${
-                      language === 'en' ? 'ring-2 ring-[#007B79] ring-offset-2' : ''
-                    }`}
-                    onClick={() => setLanguage('en')}
-                  >
-                    <svg width="24" height="24" viewBox="0 0 24 18" className="w-6 h-4">
-                      <rect width="24" height="18" fill="#012169"/>
-                      <path d="M0,0 L24,18 M24,0 L0,18" stroke="#FFFFFF" strokeWidth="2"/>
-                      <path d="M0,0 L24,18 M24,0 L0,18" stroke="#C8102E" strokeWidth="1"/>
-                      <path d="M12,0 L12,18 M0,9 L24,9" stroke="#FFFFFF" strokeWidth="3"/>
-                      <path d="M12,0 L12,18 M0,9 L24,9" stroke="#C8102E" strokeWidth="2"/>
-                    </svg>
-                  </button>
-                </div>
-                
-                <button
-                  className="bg-[rgb(0,123,121)] text-[rgb(5,5,5)] border border-[rgb(5,5,5)] rounded-full px-6 py-3 text-sm font-medium text-center mt-4"
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    setTimeout(() => {
-                      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-                    }, 100);
-                  }}
-                >
-                  {t('navigation.getStarted')}
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
+        </a>
         
       </nav>
+
+      {/* Mobile Menu Overlay - Outside nav for proper z-index stacking */}
+      {isMobileMenuOpen && (
+        <div 
+          className="mobile-menu-overlay md:hidden fixed inset-0 bg-black bg-opacity-50"
+          style={{ zIndex: 100000 }}
+          onClick={() => setIsMobileMenuOpen(false)}
+        >
+          <div 
+            className="fixed top-20 left-4 right-4 bg-white rounded-2xl p-6 shadow-xl"
+            style={{ 
+              maxWidth: 'calc(100vw - 32px)', 
+              zIndex: 100001,
+              maxHeight: 'calc(100vh - 120px)',
+              overflowY: 'auto'
+            }}
+            onClick={(e) => e.stopPropagation()}
+          > 
+            <div className="flex flex-col space-y-4">
+              <button
+                className="text-left min-h-[44px] py-3 px-4 text-[rgb(35,35,35)] hover:bg-gray-100 rounded-lg"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setTimeout(() => {
+                    window.scrollTo({ top: window.innerHeight * 1, behavior: 'smooth' });
+                  }, 100);
+                }}
+              >
+                {t('navigation.benefits')}
+              </button>
+              <button
+                className="text-left min-h-[44px] py-3 px-4 text-[rgb(35,35,35)] hover:bg-gray-100 rounded-lg"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setTimeout(() => {
+                    window.scrollTo({ top: window.innerHeight * 2, behavior: 'smooth' });
+                  }, 100);
+                }}
+              >
+                {t('navigation.services')}
+              </button>
+              <button
+                className="text-left min-h-[44px] py-3 px-4 text-[rgb(35,35,35)] hover:bg-gray-100 rounded-lg"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setTimeout(() => {
+                    window.scrollTo({ top: window.innerHeight * 4, behavior: 'smooth' });
+                  }, 100);
+                }}
+              >
+                {t('navigation.testimonials')}
+              </button>
+              <button
+                className="text-left min-h-[44px] py-3 px-4 text-[rgb(35,35,35)] hover:bg-gray-100 rounded-lg"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setTimeout(() => {
+                    window.scrollTo({ top: window.innerHeight * 6, behavior: 'smooth' });
+                  }, 100);
+                }}
+              >
+                {t('navigation.faqs')}
+              </button>
+              
+              {/* Language Toggle Buttons - Mobile */}
+              <div className="flex items-center justify-center gap-2 mt-4">
+                {/* French Flag Button */}
+                <button
+                  aria-label={t('navigation.switchToFrench')}
+                  className={`w-10 h-10 rounded-full border-0 bg-white flex items-center justify-center transition-all duration-200 hover:scale-110 hover:bg-gray-50 cursor-pointer shadow-sm ${
+                    language === 'fr' ? 'ring-2 ring-[#007B79] ring-offset-2' : ''
+                  }`}
+                  onClick={() => setLanguage('fr')}
+                >
+                  <svg width="24" height="24" viewBox="0 0 24 18" className="w-6 h-4">
+                    <rect x="0" y="0" width="8" height="18" fill="#002395"/>
+                    <rect x="8" y="0" width="8" height="18" fill="#FFFFFF"/>
+                    <rect x="16" y="0" width="8" height="18" fill="#ED2939"/>
+                  </svg>
+                </button>
+                
+                {/* British Flag Button */}
+                <button
+                  aria-label={t('navigation.switchToEnglish')}
+                  className={`w-10 h-10 rounded-full border-0 bg-white flex items-center justify-center transition-all duration-200 hover:scale-110 hover:bg-gray-50 cursor-pointer shadow-sm ${
+                    language === 'en' ? 'ring-2 ring-[#007B79] ring-offset-2' : ''
+                  }`}
+                  onClick={() => setLanguage('en')}
+                >
+                  <svg width="24" height="24" viewBox="0 0 24 18" className="w-6 h-4">
+                    <rect width="24" height="18" fill="#012169"/>
+                    <path d="M0,0 L24,18 M24,0 L0,18" stroke="#FFFFFF" strokeWidth="2"/>
+                    <path d="M0,0 L24,18 M24,0 L0,18" stroke="#C8102E" strokeWidth="1"/>
+                    <path d="M12,0 L12,18 M0,9 L24,9" stroke="#FFFFFF" strokeWidth="3"/>
+                    <path d="M12,0 L12,18 M0,9 L24,9" stroke="#C8102E" strokeWidth="2"/>
+                  </svg>
+                </button>
+              </div>
+              
+              <a
+                href="mailto:hello@hupscale.com"
+                className="bg-[rgb(0,123,121)] text-[rgb(5,5,5)] border border-[rgb(5,5,5)] rounded-full px-6 py-3 text-sm font-medium text-center mt-4 no-underline inline-block"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                }}
+              >
+                {t('navigation.getStarted')}
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Scroll container wrapper around ALL sticky sections */}
       <div className="scroll-container">
@@ -744,12 +749,17 @@ function HomeContent() {
               maxHeight: '100%'
             }}
             src={getImagePath("/HUPSCALE_Final.mp4")}
-            autoPlay
-            muted
-            loop
-            playsInline
+            autoPlay={true}
+            muted={true}
+            loop={true}
+            playsInline={true}
             preload="metadata"
             poster={getImagePath("/video-poster.jpg")}
+            onEnded={(e) => {
+              const video = e.target as HTMLVideoElement;
+              video.currentTime = 0;
+              video.play();
+            }}
           />
           
           {/* Mobile Video Quality Enhancement Overlay */}
@@ -1025,23 +1035,23 @@ function HomeContent() {
                 </p>
               </div>
 
-              {/* Step 2: We analyze */}
-              <div className="flex flex-col items-start flex-1 max-w-xs">
-                <h3 className="font-black text-2xl lg:text-3xl xl:text-4xl mb-6 lg:mb-8 whitespace-nowrap">
-                  <span style={{ color: '#007B79', textTransform: 'uppercase' }}>{t('process.analyze.we')}</span> <span style={{ color: '#EFEFEF' }}>{t('process.analyze.analyze')}</span>
-                </h3>
-                <p className="font-onest text-base lg:text-lg xl:text-xl leading-relaxed text-[#EFEFEF] max-w-full">
-                  {t('process.analyze.description')}
-                </p>
-              </div>
-
-              {/* Step 3: We create */}
+              {/* Step 2: We create */}
               <div className="flex flex-col items-start flex-1 max-w-xs">
                 <h3 className="font-black text-2xl lg:text-3xl xl:text-4xl mb-6 lg:mb-8 whitespace-nowrap">
                   <span style={{ color: '#007B79', textTransform: 'uppercase' }}>{t('process.create.we')}</span> <span style={{ color: '#EFEFEF' }}>{t('process.create.create')}</span>
                 </h3>
                 <p className="font-onest text-base lg:text-lg xl:text-xl leading-relaxed text-[#EFEFEF] max-w-full">
                   {t('process.create.description')}
+                </p>
+              </div>
+
+              {/* Step 3: We analyze */}
+              <div className="flex flex-col items-start flex-1 max-w-xs">
+                <h3 className="font-black text-2xl lg:text-3xl xl:text-4xl mb-6 lg:mb-8 whitespace-nowrap">
+                  <span style={{ color: '#007B79', textTransform: 'uppercase' }}>{t('process.analyze.we')}</span> <span style={{ color: '#EFEFEF' }}>{t('process.analyze.analyze')}</span>
+                </h3>
+                <p className="font-onest text-base lg:text-lg xl:text-xl leading-relaxed text-[#EFEFEF] max-w-full">
+                  {t('process.analyze.description')}
                 </p>
               </div>
             </div>
@@ -1092,10 +1102,10 @@ function HomeContent() {
             {/* Mobile Step 2 */}
             <div className="flex flex-col items-center text-center max-w-sm">
               <h3 className="text-xl sm:text-2xl font-black mb-4">
-                <span style={{ color: '#007B79' }}>{t('process.analyze.we')}</span>&nbsp;<span style={{ color: '#EFEFEF' }}>{t('process.analyze.analyze')}</span>
+                <span style={{ color: '#007B79' }}>{t('process.create.we')}</span>&nbsp;<span style={{ color: '#EFEFEF' }}>{t('process.create.create')}</span>
               </h3>
               <p className="text-sm sm:text-base text-[#EFEFEF] font-onest leading-relaxed">
-                {t('process.analyze.description')}
+                {t('process.create.description')}
               </p>
             </div>
 
@@ -1115,10 +1125,10 @@ function HomeContent() {
             {/* Mobile Step 3 */}
             <div className="flex flex-col items-center text-center max-w-sm">
               <h3 className="text-xl sm:text-2xl font-black mb-4">
-                <span style={{ color: '#007B79' }}>{t('process.create.we')}</span>&nbsp;<span style={{ color: '#EFEFEF' }}>{t('process.create.create')}</span>
+                <span style={{ color: '#007B79' }}>{t('process.analyze.we')}</span>&nbsp;<span style={{ color: '#EFEFEF' }}>{t('process.analyze.analyze')}</span>
               </h3>
               <p className="text-sm sm:text-base text-[#EFEFEF] font-onest leading-relaxed">
-                {t('process.create.description')}
+                {t('process.analyze.description')}
               </p>
             </div>
           </div>
@@ -1291,8 +1301,8 @@ function HomeContent() {
                     </button>
                   </div>
                   <div className="flex justify-center gap-3">
-                    <a href="https://linkedin.com/in/johndoe" className="w-14 h-14 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
-                      <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    <a href="https://instagram.com/hupscale" className="w-14 h-14 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
+                      <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                     </a>
                     <a href="mailto:john@hupscale.com" className="w-14 h-14 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
                       <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
@@ -1300,12 +1310,48 @@ function HomeContent() {
                   </div>
                 </div>
                 
-                {/* Team Member 2 */}
+                {/* Team Member 2 - Frédéric Cordat */}
+                <div className="shrink-0 w-11/12 max-w-sm snap-center bg-white rounded-2xl p-6 shadow-lg">
+                  <div className="w-24 h-24 mx-auto mb-4">
+                    <img 
+                      src={getImagePath("/team-frederic.png")} 
+                      alt="Frédéric Cordat"
+                      className="w-full h-full rounded-full object-cover"
+                    />
+                  </div>
+                  <h3 className="text-xl font-bold text-[#181818] text-center mb-1">
+                    {t('team.members.frederic.name')}
+                  </h3>
+                  <p className="text-base text-[#007B79] text-center mb-3">
+                    {t('team.members.frederic.role')}
+                  </p>
+                  <div className="text-sm text-gray-600 text-center mb-4">
+                    <p className={expandedBios[2] ? '' : 'line-clamp-3'}>
+                      {t('team.members.frederic.bio')}
+                    </p>
+                    <button 
+                      onClick={() => setExpandedBios(prev => ({ ...prev, 2: !prev[2] }))}
+                      className="text-[#007B79] underline text-sm mt-1 hover:text-[#006666] transition"
+                    >
+                      {expandedBios[2] ? t('team.readLess') : t('team.readMore')}
+                    </button>
+                  </div>
+                  <div className="flex justify-center gap-3">
+                    <a href="https://instagram.com/hupscale" className="w-14 h-14 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
+                      <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    <a href="mailto:john@hupscale.com" className="w-14 h-14 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
+                      <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
+                    </a>
+                  </div>
+                </div>
+                
+                {/* Team Member 3 - Rodney */}
                 <div className="shrink-0 w-11/12 max-w-sm snap-center bg-white rounded-2xl p-6 shadow-lg">
                   <div className="w-24 h-24 mx-auto mb-4">
                     <img 
                       src={getImagePath("/team-rodney.jpg")} 
-                      alt="Rodney ONANGA"
+                      alt="Rodney Onanga"
                       className="w-full h-full rounded-full object-cover"
                     />
                   </div>
@@ -1316,19 +1362,19 @@ function HomeContent() {
                     {t('team.members.rodney.role')}
                   </p>
                   <div className="text-sm text-gray-600 text-center mb-4">
-                    <p className={expandedBios[2] ? '' : 'line-clamp-3'}>
+                    <p className={expandedBios[3] ? '' : 'line-clamp-3'}>
                       {t('team.members.rodney.bio')}
                     </p>
                     <button 
-                      onClick={() => setExpandedBios(prev => ({ ...prev, 2: !prev[2] }))}
+                      onClick={() => setExpandedBios(prev => ({ ...prev, 3: !prev[3] }))}
                       className="text-[#007B79] underline text-sm mt-1 hover:text-[#006666] transition"
                     >
-                      {expandedBios[2] ? t('team.readLess') : t('team.readMore')}
+                      {expandedBios[3] ? t('team.readLess') : t('team.readMore')}
                     </button>
                   </div>
                   <div className="flex justify-center gap-3">
-                    <a href="https://linkedin.com/in/janesmith" className="w-14 h-14 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
-                      <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    <a href="https://instagram.com/hupscale" className="w-14 h-14 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
+                      <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                     </a>
                     <a href="mailto:jane@hupscale.com" className="w-14 h-14 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
                       <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
@@ -1363,8 +1409,8 @@ function HomeContent() {
                     </button>
                   </div>
                   <div className="flex justify-center gap-3">
-                    <a href="https://linkedin.com/in/mikejohnson" className="w-14 h-14 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
-                      <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    <a href="https://instagram.com/hupscale" className="w-14 h-14 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
+                      <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                     </a>
                     <a href="mailto:mike@hupscale.com" className="w-14 h-14 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
                       <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
@@ -1405,22 +1451,54 @@ function HomeContent() {
                       {expandedBios[1] ? t('team.readLess') : t('team.readMore')}
                     </button>
                   </div>
-                  <div className="flex justify-center gap-3">
-                    <a href="https://linkedin.com/in/johndoe" className="w-11 h-11 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
-                      <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                    </a>
+                  <div className="flex justify-center gap-3">                    <a href="https://instagram.com/hupscale" className="w-11 h-11 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
+                      <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>                    </a>
                     <a href="mailto:john@hupscale.com" className="w-11 h-11 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
                       <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
                     </a>
                   </div>
                 </div>
                 
-                {/* Team Member 2 */}
+                {/* Team Member 2 - Frédéric Cordat */}
+                <div className="bg-white rounded-2xl p-6 shadow-lg w-full max-w-sm">
+                  <div className="w-32 h-32 mx-auto mb-4">
+                    <img 
+                      src={getImagePath("/team-frederic.png")} 
+                      alt="Frédéric Cordat"
+                      className="w-full h-full rounded-full object-cover"
+                    />
+                  </div>
+                  <h3 className="text-2xl font-bold text-[#181818] text-center mb-1">
+                    {t('team.members.frederic.name')}
+                  </h3>
+                  <p className="text-lg text-[#007B79] text-center mb-3">
+                    {t('team.members.frederic.role')}
+                  </p>
+                  <div className="text-base text-gray-600 text-center mb-4">
+                    <p className={expandedBios[2] ? '' : 'line-clamp-3'}>
+                      {t('team.members.frederic.bio')}
+                    </p>
+                    <button 
+                      onClick={() => setExpandedBios(prev => ({ ...prev, 2: !prev[2] }))}
+                      className="text-[#007B79] underline text-sm mt-1 hover:text-[#006666] transition"
+                    >
+                      {expandedBios[2] ? t('team.readLess') : t('team.readMore')}
+                    </button>
+                  </div>
+                  <div className="flex justify-center gap-3">                    <a href="https://instagram.com/hupscale" className="w-11 h-11 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
+                      <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>                    </a>
+                    <a href="mailto:john@hupscale.com" className="w-11 h-11 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
+                      <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
+                    </a>
+                  </div>
+                </div>
+                
+                {/* Team Member 3 - Rodney */}
                 <div className="bg-white rounded-2xl p-6 shadow-lg w-full max-w-sm">
                   <div className="w-32 h-32 mx-auto mb-4">
                     <img 
                       src={getImagePath("/team-rodney.jpg")} 
-                      alt="Rodney ONANGA"
+                      alt="Rodney Onanga"
                       className="w-full h-full rounded-full object-cover"
                     />
                   </div>
@@ -1431,19 +1509,19 @@ function HomeContent() {
                     {t('team.members.rodney.role')}
                   </p>
                   <div className="text-base text-gray-600 text-center mb-4">
-                    <p className={expandedBios[2] ? '' : 'line-clamp-3'}>
+                    <p className={expandedBios[3] ? '' : 'line-clamp-3'}>
                       {t('team.members.rodney.bio')}
                     </p>
                     <button 
-                      onClick={() => setExpandedBios(prev => ({ ...prev, 2: !prev[2] }))}
+                      onClick={() => setExpandedBios(prev => ({ ...prev, 3: !prev[3] }))}
                       className="text-[#007B79] underline text-sm mt-1 hover:text-[#006666] transition"
                     >
-                      {expandedBios[2] ? t('team.readLess') : t('team.readMore')}
+                      {expandedBios[3] ? t('team.readLess') : t('team.readMore')}
                     </button>
                   </div>
                   <div className="flex justify-center gap-3">
-                    <a href="https://linkedin.com/in/janesmith" className="w-11 h-11 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
-                      <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    <a href="https://instagram.com/hupscale" className="w-11 h-11 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
+                      <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                     </a>
                     <a href="mailto:jane@hupscale.com" className="w-11 h-11 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
                       <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
@@ -1451,7 +1529,7 @@ function HomeContent() {
                   </div>
                 </div>
                 
-                {/* Team Member 3 */}
+                {/* Team Member 4 - Leandro */}
                 <div className="bg-white rounded-2xl p-6 shadow-lg w-full max-w-sm">
                   <div className="w-32 h-32 mx-auto mb-4">
                     <img 
@@ -1467,19 +1545,19 @@ function HomeContent() {
                     {t('team.members.leandro.role')}
                   </p>
                   <div className="text-base text-gray-600 text-center mb-4">
-                    <p className={expandedBios[3] ? '' : 'line-clamp-3'}>
+                    <p className={expandedBios[4] ? '' : 'line-clamp-3'}>
                       {t('team.members.leandro.bio')}
                     </p>
                     <button 
-                      onClick={() => setExpandedBios(prev => ({ ...prev, 3: !prev[3] }))}
+                      onClick={() => setExpandedBios(prev => ({ ...prev, 4: !prev[4] }))}
                       className="text-[#007B79] underline text-sm mt-1 hover:text-[#006666] transition"
                     >
-                      {expandedBios[3] ? t('team.readLess') : t('team.readMore')}
+                      {expandedBios[4] ? t('team.readLess') : t('team.readMore')}
                     </button>
                   </div>
                   <div className="flex justify-center gap-3">
-                    <a href="https://linkedin.com/in/mikejohnson" className="w-11 h-11 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
-                      <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    <a href="https://instagram.com/hupscale" className="w-11 h-11 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
+                      <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                     </a>
                     <a href="mailto:mike@hupscale.com" className="w-11 h-11 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
                       <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
@@ -1499,7 +1577,8 @@ function HomeContent() {
           style={{ 
             zIndex: 7,
             minHeight: '100vh',
-            background: '#F5F5F5'
+            background: `url('${getImagePath('/answers-section-bg-teal-vectorized.png')}') center center`,
+            backgroundSize: 'cover'
           }}
         >
         
@@ -1527,9 +1606,9 @@ function HomeContent() {
 {t('interaction.heading2.your')} <span style={{ color: '#007B79' }}>{t('interaction.heading2.business')}</span>
           </p>
           
-          <button className="bg-[#007B79] text-white border-none rounded-full px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold cursor-pointer uppercase shadow-lg hover:shadow-xl transition-all duration-200 min-h-[44px] min-w-[44px]">
+          <a href="mailto:hello@hupscale.com" className="bg-[#007B79] text-white border-none rounded-full px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold cursor-pointer uppercase shadow-lg hover:shadow-xl transition-all duration-200 min-h-[44px] min-w-[44px] no-underline inline-block text-center">
             {t('interaction.cta')}
-          </button>
+          </a>
         </div>
         
         </section>
@@ -1595,32 +1674,29 @@ function HomeContent() {
           
           {/* Main Heading - Responsive */}
           <h1 className="font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-center text-[#232323] leading-tight uppercase max-w-4xl mx-auto">
-            TAKE YOUR ASTEROIDS AND<br className="hidden sm:block" />
-            <span className="sm:hidden"> </span>SCALE YOUR VISION
+            {t('cta.heading')}
           </h1>
           
           {/* Contact Info Text - Responsive */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 mt-4 lg:mt-6 mb-6 lg:mb-8 text-center">
             <span className="font-onest text-base sm:text-lg lg:text-xl text-[#232323]">
-              you can also contact us directly
+              {t('cta.contactText')}
             </span>
             <a
-              href="mailto:hello@hupscaleagency.com"
+              href={`mailto:${t('cta.email')}`}
               className="font-onest text-base sm:text-lg lg:text-xl text-[#232323] underline hover:no-underline transition-all duration-200"
             >
-              hello@hupscaleagency.com
+              {t('cta.email')}
             </a>
           </div>
           
           {/* CTA Button - Responsive */}
           <a 
-            href="https://wa.me/qr/ASGK4GMJI7E7P1"
-            target="_blank"
-            rel="noopener"
+            href="mailto:hello@hupscale.com"
             className="bg-white text-[#007B79] rounded-full px-6 py-3 sm:px-8 sm:py-4 lg:px-10 lg:py-5 no-underline inline-block mt-4 lg:mt-6 hover:bg-opacity-90 transition-all duration-200 shadow-lg hover:shadow-xl"
           >
             <span className="font-onest text-base sm:text-lg lg:text-xl xl:text-2xl font-bold uppercase tracking-wide">
-              Let's Hupscale
+              {t('cta.button')}
             </span>
           </a>
           
