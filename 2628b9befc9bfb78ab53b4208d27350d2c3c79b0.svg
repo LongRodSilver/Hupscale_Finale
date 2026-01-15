@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+  <circle cx="15" cy="15" r="15" fill="#FABA2C"/>
+  <circle cx="15" cy="15" r="8" fill="white"/>
+  <polygon points="15,9 17,13 21,13 18,16 19,20 15,18 11,20 12,16 9,13 13,13" fill="#FABA2C"/>
+</svg>
