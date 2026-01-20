@@ -247,12 +247,12 @@ function HomeContent() {
 
   // GALLERY CAROUSEL FOR HUPSCALE YOUR BUSINESS SECTION
   const galleryImages = [
-    "/Hupscale_Finale/AiDesign-Shopfront3dlogobillboardmockup.png",
-    "/Hupscale_Finale/AiDesign-BusinessmanisworkingoncomputeradobeAIinterfacevilogoprototyperenderings.png",
-    "/Hupscale_Finale/AiDesign-Papertearingvilogomockuprenderings.png",
-    "/Hupscale_Finale/AiDesign-Outdoorstreetwallbillboardlogomockup.png",
-    "/Hupscale_Finale/AiDesign-Outdoorwallshadowbillboardlogomockup.png",
-    "/Hupscale_Finale/AiDesign-Outdoorgoldenbillboardlogodisplayeffect.png"
+    "/AiDesign-Shopfront3dlogobillboardmockup.png",
+    "/AiDesign-BusinessmanisworkingoncomputeradobeAIinterfacevilogoprototyperenderings.png",
+    "/AiDesign-Papertearingvilogomockuprenderings.png",
+    "/AiDesign-Outdoorstreetwallbillboardlogomockup.png",
+    "/AiDesign-Outdoorwallshadowbillboardlogomockup.png",
+    "/AiDesign-Outdoorgoldenbillboardlogodisplayeffect.png"
   ];
 
   const [galleryIndex, setGalleryIndex] = useState(0);
