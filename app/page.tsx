@@ -633,8 +633,10 @@ function HomeContent() {
           </button>
 
           {/* Guestbook / Livre d'Or */}
-          <a
-            href="/livre-dor"
+          <button
+            onClick={() => {
+              window.location.href = getImagePath('/livre-dor/');
+            }}
             style={{
               background: 'none',
               border: 'none',
@@ -647,9 +649,7 @@ function HomeContent() {
               whiteSpace: 'nowrap',
               borderRadius: '100px',
               padding: '8px 12px',
-              backgroundColor: 'rgba(0, 0, 0, 0)',
-              textDecoration: 'none',
-              display: 'inline-block'
+              backgroundColor: 'rgba(0, 0, 0, 0)'
             }}
             onMouseEnter={(e) => {
               const target = e.target as HTMLElement;
@@ -661,7 +661,7 @@ function HomeContent() {
             }}
           >
             {t('navigation.guestbook')}
-          </a>
+          </button>
         </div>
         
         {/* Language Toggle Buttons */}
@@ -1715,7 +1715,7 @@ function HomeContent() {
             <a href="mailto:hello@hupscale.com" className="bg-[#007B79] text-white border-none rounded-full px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold cursor-pointer uppercase shadow-lg hover:shadow-2xl hover:scale-105 hover:bg-[#006666] transition-all duration-300 min-h-[44px] min-w-[44px] no-underline inline-block text-center">
               {t('interaction.cta')}
             </a>
-            <a href="/livre-dor" className="bg-white text-[#007B79] border-2 border-[#007B79] rounded-full px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold cursor-pointer uppercase shadow-lg hover:shadow-2xl hover:scale-105 hover:bg-[#007B79] hover:text-white transition-all duration-300 min-h-[44px] min-w-[44px] no-underline inline-block text-center">
+            <a href={getImagePath('/livre-dor/')} className="bg-white text-[#007B79] border-2 border-[#007B79] rounded-full px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold cursor-pointer uppercase shadow-lg hover:shadow-2xl hover:scale-105 hover:bg-[#007B79] hover:text-white transition-all duration-300 min-h-[44px] min-w-[44px] no-underline inline-block text-center">
               {t('interaction.guestbook')}
             </a>
           </div>
