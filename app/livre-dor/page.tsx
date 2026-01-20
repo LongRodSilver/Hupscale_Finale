@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useTranslations } from '@/hooks/useTranslations';
 import BaseImage from '@/components/BaseImage';
+import TestimonialForm from '@/components/TestimonialForm';
 
 // Helper function to get proper image path for GitHub Pages
 const getImagePath = (path: string) => {
@@ -165,38 +166,8 @@ export default function LivreDor() {
             </p>
           </div>
 
-          {/* Google Form Embed - Placeholder */}
-          <div className="bg-gradient-to-br from-[#E8F5F5] to-white rounded-2xl p-8 shadow-lg">
-            <div className="text-center py-12">
-              <div className="w-20 h-20 mx-auto mb-6 bg-[#007B79] rounded-full flex items-center justify-center">
-                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold text-[#181818] mb-4">
-                {t('guestbook.form_placeholder_title')}
-              </h3>
-              <p className="text-gray-600 mb-6">
-                {t('guestbook.form_placeholder_text')}
-              </p>
-              
-              {/* This is where the Google Form iframe will be embedded */}
-              <div id="google-form-container" className="min-h-[600px] bg-white rounded-xl">
-                {/* Google Form iframe will be inserted here */}
-                <iframe 
-                  src="GOOGLE_FORM_URL_HERE"
-                  width="100%" 
-                  height="600" 
-                  frameBorder="0" 
-                  marginHeight={0} 
-                  marginWidth={0}
-                  className="rounded-xl"
-                >
-                  {t('guestbook.form_loading')}
-                </iframe>
-              </div>
-            </div>
-          </div>
+          {/* Custom Testimonial Form */}
+          <TestimonialForm />
         </div>
       </section>
 
