@@ -153,18 +153,22 @@
       "meaningful": "un impact significatif et des expériences convaincantes."
     },
     "customers": {
-      "sarah": "Sarah M.",
-      "rachel": "Rachel T.",
-      "marcus": "Marcus D.",
-      "emma": "Emma K.",
-      "paul": "G aka AF"
+      "haesoo": "Haesoo",
+      "josef": "Josef L.",
+      "geraud": "Géraud D.",
+      "anissa": "Anissa L.",
+      "rory": "Rory H.",
+      "franck": "Franck B.",
+      "jazmin": "Jazmin P."
     },
     "reviews": {
-      "sarah": "J'avais du mal à obtenir de la traction pour mon entreprise de coaching jusqu'à ce que je trouve Hupscale. En trois mois, ma clientèle a triplé et mes revenus ont doublé. Leurs stratégies sont simples mais incroyablement efficaces. Si vous voulez de vrais résultats, pas seulement des promesses, c'est votre équipe!",
-      "rachel": "Hupscale a complètement transformé ma stratégie de contenu! Je suis passée de publications aléatoires à un plan clair qui convertit réellement. Ma liste d'emails est passée de 200 à 5 000 abonnés en seulement quatre mois. L'équipe comprend vraiment ce qu'il faut pour développer une entreprise!",
-      "marcus": "En tant que propriétaire de petite entreprise, je pensais que la croissance était hors de portée. Hupscale m'a prouvé le contraire. Ils m'ont aidé à rationaliser mes processus et à atteindre des clients que je n'aurais jamais pensé possibles. Mes ventes ont augmenté de 150% en six mois. Ça vaut vraiment chaque centime!",
-      "emma": "J'ai travaillé avec plusieurs agences auparavant, mais Hupscale est différent. Ils se soucient vraiment de votre succès. La visibilité de ma marque a explosé, et je me sens enfin confiante dans la direction de mon entreprise. Les résultats parlent d'eux-mêmes — mon meilleur investissement cette année!",
-      "paul": "Je suis en coaching 1 to 1 avec Scalpa depuis maintenant 3 ans et demi j'ai appris beaucoup de choses qui m'ont permis de scaler mon business et de tripler mes revenus je ne compte pas m'arrêter là ! très satisfait du travail effectué."
+      "haesoo": "Travailler avec Hupscale a été un véritable tournant pour ma marque. Leur expertise en stratégie de médias sociaux m'a aidé à atteindre des audiences que je n'aurais jamais pensé possibles. Mon taux d'engagement a explosé !",
+      "josef": "L'équipe d'Hupscale comprend ce qu'il faut pour construire une présence en ligne réussie. Leur approche stratégique et leur dévouement aux résultats m'ont aidé à développer mon entreprise au-delà de mes attentes.",
+      "geraud": "J'ai travaillé avec de nombreuses agences, mais Hupscale se démarque. Ils ne promettent pas seulement des résultats—ils les livrent. La visibilité de ma marque a considérablement augmenté, et je ne pourrais pas être plus satisfait du partenariat.",
+      "anissa": "L'équipe d'Hupscale se soucie vraiment de votre succès. Ils ont pris le temps de comprendre ma vision et m'ont aidé à la transformer en réalité. Mon entreprise a connu une croissance exponentielle depuis que je travaille avec eux.",
+      "rory": "Les stratégies innovantes et l'approche personnalisée d'Hupscale ont transformé ma présence en ligne. Ce ne sont pas seulement des prestataires de services—ce sont de véritables partenaires de croissance. Je recommande vivement !",
+      "franck": "Dès le premier jour, Hupscale m'a impressionné par leur professionnalisme et leur expertise. Ils m'ont aidé à affiner ma stratégie de marque et à atteindre de nouveaux sommets. Les résultats parlent d'eux-mêmes !",
+      "jazmin": "Travailler avec Hupscale a été l'une des meilleures décisions pour mon entreprise. Leurs solutions créatives et leur pensée stratégique m'ont aidé à me connecter avec mon public de manières significatives. Ça en vaut vraiment la peine !"
     }
   },
   "interaction": {
@@ -173,7 +177,8 @@
       "your": "votre",
       "business": "ENTREPRISE."
     },
-    "cta": "Développons"
+    "cta": "Développons",
+    "guestbook": "Livre d'or"
   },
   "faq": {
     "heading": {
@@ -199,9 +204,9 @@
     "readLess": "Lire moins",
     "members": {
       "pascal": {
-        "name": "Scalpa Delorantis",
+        "name": "Scalpa",
         "role": "Responsable Médias Sociaux",
-        "bio": "Leader visionnaire avec plus de 10 ans d'expérience en marketing digital et développement de marques ambitieuses. Pascal est passionné par la création d'équipes et la fourniture d'innovation pour aider les clients à croître grâce à la pensée stratégique."
+        "bio": "Leader visionnaire avec plus de 10 ans d'expérience en marketing digital et développement de marques ambitieuses. Scalpa est passionné par la création d'équipes et la fourniture d'innovation pour aider les clients à croître grâce à la pensée stratégique."
       },
       "rodney": {
         "name": "Rodney Onanga",

@@ -153,18 +153,22 @@
       "meaningful": "meaningful impact and compelling experiences."
     },
     "customers": {
-      "sarah": "Sarah M.",
-      "rachel": "Rachel T.",
-      "marcus": "Marcus D.",
-      "emma": "Emma K.",
-      "paul": "G aka AF"
+      "haesoo": "Haesoo",
+      "josef": "Josef L.",
+      "geraud": "Géraud D.",
+      "anissa": "Anissa L.",
+      "rory": "Rory H.",
+      "franck": "Franck B.",
+      "jazmin": "Jazmin P."
     },
     "reviews": {
-      "sarah": "I was struggling to get traction for my coaching business until I found Hupscale. Within three months, my client base tripled and my revenue doubled. Their strategies are simple but incredibly effective. If you want real results, not just promises, this is your team!",
-      "rachel": "Hupscale transformed my content strategy completely! I went from posting randomly to having a clear plan that actually converts. My email list grew from 200 to 5,000 subscribers in just four months. The team really understands what it takes to scale a business!",
-      "marcus": "As a small business owner, I thought growth was out of reach. Hupscale proved me wrong. They helped me streamline my processes and reach customers I never thought possible. My sales increased by 150% in six months. Absolutely worth every penny!",
-      "emma": "I've worked with several agencies before, but Hupscale is different. They actually care about your success. My brand visibility skyrocketed, and I finally feel confident in my business direction. The results speak for themselves—my best investment this year!",
-      "paul": "I have been in 1-to-1 coaching with Scalpa for 3 and a half years now. I have learned so much that has allowed me to scale my business and triple my revenue. I'm not planning to stop there! Very satisfied with the work done."
+      "haesoo": "Working with Hupscale has been a game-changer for my brand. Their expertise in social media strategy helped me reach audiences I never thought possible. My engagement rates have skyrocketed!",
+      "josef": "Hupscale's team understands what it takes to build a successful online presence. Their strategic approach and dedication to results have helped me scale my business beyond my expectations.",
+      "geraud": "I've worked with many agencies, but Hupscale stands out. They don't just promise results—they deliver them. My brand visibility has increased dramatically, and I couldn't be happier with the partnership.",
+      "anissa": "The team at Hupscale truly cares about your success. They took the time to understand my vision and helped me turn it into reality. My business has grown exponentially since working with them.",
+      "rory": "Hupscale's innovative strategies and personalized approach have transformed my online presence. They're not just service providers—they're true partners in growth. Highly recommend!",
+      "franck": "From day one, Hupscale impressed me with their professionalism and expertise. They helped me refine my brand strategy and reach new heights. The results speak for themselves!",
+      "jazmin": "Working with Hupscale has been one of the best decisions for my business. Their creative solutions and strategic thinking have helped me connect with my audience in meaningful ways. Absolutely worth it!"
     }
   },
   "interaction": {
@@ -173,7 +177,8 @@
       "your": "your",
       "business": "BUSINESS."
     },
-    "cta": "Let's Scale"
+    "cta": "Let's Scale",
+    "guestbook": "Guestbook"
   },
   "faq": {
     "heading": {
@@ -199,9 +204,9 @@
     "readLess": "Read less",
     "members": {
       "pascal": {
-        "name": "Scalpa Delorantis",
+        "name": "Scalpa",
         "role": "Social Media PR",
-        "bio": "Visionary leader with 10+ years of experience in digital marketing and scaling ambitious brands. Pascal is passionate about building teams and delivering innovation to help clients grow through strategic thinking."
+        "bio": "Visionary leader with 10+ years of experience in digital marketing and scaling ambitious brands. Scalpa is passionate about building teams and delivering innovation to help clients grow through strategic thinking."
       },
       "rodney": {
         "name": "Rodney Onanga",
