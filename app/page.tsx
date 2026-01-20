@@ -147,49 +147,49 @@ function HomeContent() {
     {
       id: 1,
       name: "Haesoo",
-      image: "/chris-m-profile.jpg",
+      image: "/idolnation_.jpg",
       instagram: "IdolNation_",
       text: t('testimonials.reviews.haesoo')
     },
     {
       id: 2,
       name: "Josef L.",
-      image: "/paul-avatar.jpg",
+      image: "/JosefCEO.jpg",
       instagram: "Josef.Ceo",
       text: t('testimonials.reviews.josef')
     },
     {
       id: 3,
       name: "Géraud D.",
-      image: "/chris-m-profile.jpg",
+      image: "/Gereau_Dellea.jpg",
       instagram: "Geraud_Dellea",
       text: t('testimonials.reviews.geraud')
     },
     {
       id: 4,
       name: "Anissa L.",
-      image: "/paul-avatar.jpg",
+      image: "/AnissaLalahoum.jpg",
       instagram: "AnissaLalahoum",
       text: t('testimonials.reviews.anissa')
     },
     {
       id: 5,
       name: "Rory H.",
-      image: "/chris-m-profile.jpg",
+      image: "/RoryHarven.jpg",
       instagram: "RoryHarven",
       text: t('testimonials.reviews.rory')
     },
     {
       id: 6,
       name: "Franck B.",
-      image: "/paul-avatar.jpg",
+      image: "/FrankBurnss_.jpg",
       instagram: "FrankBurnss_",
       text: t('testimonials.reviews.franck')
     },
     {
       id: 7,
       name: "Jazmin P.",
-      image: "/chris-m-profile.jpg",
+      image: "/JazminmPerez.jpg",
       instagram: "JazminmPerez",
       text: t('testimonials.reviews.jazmin')
     }
