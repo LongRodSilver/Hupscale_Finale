@@ -1360,7 +1360,7 @@ function HomeContent() {
                 <div className="shrink-0 w-11/12 max-w-sm snap-center bg-white rounded-2xl p-6 shadow-lg">
                   <div className="w-24 h-24 mx-auto mb-4">
                     <img 
-                      src={getImagePath("/team-scalpa.png")} 
+                      src={getImagePath("/team-pascal.png")} 
                       alt="Pascal Delorantis"
                       className="w-full h-full rounded-full object-cover"
                     />
@@ -1432,7 +1432,7 @@ function HomeContent() {
                 <div className="shrink-0 w-11/12 max-w-sm snap-center bg-white rounded-2xl p-6 shadow-lg">
                   <div className="w-24 h-24 mx-auto mb-4">
                     <img 
-                      src={getImagePath("/team-rodney-new.jpg")} 
+                      src={getImagePath("/team-rodney.jpg")} 
                       alt="Rodney Onanga"
                       className="w-full h-full rounded-full object-cover"
                     />
@@ -1511,7 +1511,7 @@ function HomeContent() {
                 <div className="bg-white rounded-2xl p-6 shadow-lg w-full max-w-sm">
                   <div className="w-32 h-32 mx-auto mb-4">
                     <img 
-                      src={getImagePath("/team-scalpa.png")} 
+                      src={getImagePath("/team-pascal.png")} 
                       alt="Pascal Delorantis"
                       className="w-full h-full rounded-full object-cover"
                     />
@@ -1579,7 +1579,7 @@ function HomeContent() {
                 <div className="bg-white rounded-2xl p-6 shadow-lg w-full max-w-sm">
                   <div className="w-32 h-32 mx-auto mb-4">
                     <img 
-                      src={getImagePath("/team-rodney-new.jpg")} 
+                      src={getImagePath("/team-rodney.jpg")} 
                       alt="Rodney Onanga"
                       className="w-full h-full rounded-full object-cover"
                     />
@@ -1681,10 +1681,10 @@ function HomeContent() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-end items-center">
-            <a href="mailto:hello@hupscale.com" className="bg-[#007B79] text-white border-none rounded-full px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold cursor-pointer uppercase shadow-lg hover:shadow-xl transition-all duration-200 min-h-[44px] min-w-[44px] no-underline inline-block text-center">
+            <a href="mailto:hello@hupscale.com" className="bg-[#007B79] text-white border-none rounded-full px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold cursor-pointer uppercase shadow-lg hover:shadow-2xl hover:scale-105 hover:bg-[#006666] transition-all duration-300 min-h-[44px] min-w-[44px] no-underline inline-block text-center">
               {t('interaction.cta')}
             </a>
-            <a href="/livre-dor" className="bg-white text-[#007B79] border-2 border-[#007B79] rounded-full px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold cursor-pointer uppercase shadow-lg hover:shadow-xl transition-all duration-200 min-h-[44px] min-w-[44px] no-underline inline-block text-center">
+            <a href="/livre-dor" className="bg-white text-[#007B79] border-2 border-[#007B79] rounded-full px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold cursor-pointer uppercase shadow-lg hover:shadow-2xl hover:scale-105 hover:bg-[#007B79] hover:text-white transition-all duration-300 min-h-[44px] min-w-[44px] no-underline inline-block text-center">
               {t('interaction.guestbook')}
             </a>
           </div>
