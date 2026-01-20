@@ -4,6 +4,7 @@
     "services": "Services", 
     "testimonials": "Testimonials",
     "faqs": "FAQ's",
+    "guestbook": "Guestbook",
     "getStarted": "Get started",
     "switchToFrench": "Switch to French",
     "switchToEnglish": "Switch to English"
@@ -236,5 +237,20 @@
     "instagram": "Instagram",
     "terms": "Terms",
     "privacy": "Privacy"
+  },
+  "guestbook": {
+    "title": "Guestbook",
+    "subtitle": "Share your experience with Hupscale and read what others have to say about working with us.",
+    "testimonials_title": "What Our Clients Say",
+    "read_more": "Read more",
+    "read_less": "Read less",
+    "form_title": "Share Your Experience",
+    "form_subtitle": "We'd love to hear about your experience working with Hupscale. Your testimonial helps others discover how we can help them grow.",
+    "form_placeholder_title": "Google Form Integration",
+    "form_placeholder_text": "The Google Form will be embedded here once you provide the form URL.",
+    "form_loading": "Loading form...",
+    "cta_title": "Ready to Scale Your Business?",
+    "cta_subtitle": "Join our growing community of successful clients and let's make your brand shine.",
+    "cta_button": "Get Started"
   }
 }

@@ -4,6 +4,7 @@
     "services": "Services",
     "testimonials": "Témoignages",
     "faqs": "FAQ",
+    "guestbook": "Livre d'or",
     "getStarted": "Commencer",
     "switchToFrench": "Passer au français",
     "switchToEnglish": "Passer à l'anglais"
@@ -236,5 +237,20 @@
     "instagram": "Instagram",
     "terms": "Conditions",
     "privacy": "Confidentialité"
+  },
+  "guestbook": {
+    "title": "Livre d'Or",
+    "subtitle": "Partagez votre expérience avec Hupscale et découvrez ce que nos clients disent de nous.",
+    "testimonials_title": "Ce Que Disent Nos Clients",
+    "read_more": "Lire plus",
+    "read_less": "Lire moins",
+    "form_title": "Partagez Votre Expérience",
+    "form_subtitle": "Nous aimerions connaître votre expérience avec Hupscale. Votre témoignage aide d'autres personnes à découvrir comment nous pouvons les aider à grandir.",
+    "form_placeholder_title": "Intégration du Formulaire Google",
+    "form_placeholder_text": "Le formulaire Google sera intégré ici une fois que vous fournirez l'URL du formulaire.",
+    "form_loading": "Chargement du formulaire...",
+    "cta_title": "Prêt à Développer Votre Entreprise?",
+    "cta_subtitle": "Rejoignez notre communauté grandissante de clients satisfaits et faisons briller votre marque.",
+    "cta_button": "Commencer"
   }
 }

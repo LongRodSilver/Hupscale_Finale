@@ -631,6 +631,37 @@ function HomeContent() {
           >
             {t('navigation.faqs')}
           </button>
+
+          {/* Guestbook / Livre d'Or */}
+          <a
+            href="/livre-dor"
+            style={{
+              background: 'none',
+              border: 'none',
+              color: 'rgb(35, 35, 35)',
+              fontSize: '13px',
+              fontWeight: '500',
+              fontFamily: 'LEMONMILK, Morgan, sans-serif',
+              transition: 'background-color 0.3s ease',
+              cursor: 'pointer',
+              whiteSpace: 'nowrap',
+              borderRadius: '100px',
+              padding: '8px 12px',
+              backgroundColor: 'rgba(0, 0, 0, 0)',
+              textDecoration: 'none',
+              display: 'inline-block'
+            }}
+            onMouseEnter={(e) => {
+              const target = e.target as HTMLElement;
+              target.style.backgroundColor = 'rgb(0, 176, 129)';
+            }}
+            onMouseLeave={(e) => {
+              const target = e.target as HTMLElement;
+              target.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+            }}
+          >
+            {t('navigation.guestbook')}
+          </a>
         </div>
         
         {/* Language Toggle Buttons */}
