@@ -1360,7 +1360,7 @@ function HomeContent() {
                 <div className="shrink-0 w-11/12 max-w-sm snap-center bg-white rounded-2xl p-6 shadow-lg">
                   <div className="w-24 h-24 mx-auto mb-4">
                     <img 
-                      src={getImagePath("/team-pascal.png")} 
+                      src={getImagePath("/team-scalpa-new.jpg")} 
                       alt="Pascal Delorantis"
                       className="w-full h-full rounded-full object-cover"
                     />
@@ -1511,7 +1511,7 @@ function HomeContent() {
                 <div className="bg-white rounded-2xl p-6 shadow-lg w-full max-w-sm">
                   <div className="w-32 h-32 mx-auto mb-4">
                     <img 
-                      src={getImagePath("/team-pascal.png")} 
+                      src={getImagePath("/team-scalpa-new.jpg")} 
                       alt="Pascal Delorantis"
                       className="w-full h-full rounded-full object-cover"
                     />
