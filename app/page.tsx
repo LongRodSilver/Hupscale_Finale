@@ -281,6 +281,11 @@ function HomeContent() {
             alt={`Gallery ${idx + 1}`}
             className="w-full h-full object-cover"
           />
+          {/* Semi-transparent dark overlay for better text readability */}
+          <div 
+            className="absolute top-0 left-0 w-full h-full" 
+            style={{ backgroundColor: 'rgba(0, 0, 0, 0.3)' }}
+          />
         </div>
       ))}
     </div>
