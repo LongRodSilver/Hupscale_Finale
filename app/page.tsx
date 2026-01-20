@@ -147,49 +147,49 @@ function HomeContent() {
     {
       id: 1,
       name: "Haesoo",
-      image: "/idolnation_.jpg",
+      image: "/chris-m-profile.jpg",
       instagram: "IdolNation_",
       text: t('testimonials.reviews.haesoo')
     },
     {
       id: 2,
       name: "Josef L.",
-      image: "/JosefCEO.jpg",
+      image: "/paul-avatar.jpg",
       instagram: "Josef.Ceo",
       text: t('testimonials.reviews.josef')
     },
     {
       id: 3,
       name: "Géraud D.",
-      image: "/Gereau_Dellea.jpg",
+      image: "/chris-m-profile.jpg",
       instagram: "Geraud_Dellea",
       text: t('testimonials.reviews.geraud')
     },
     {
       id: 4,
       name: "Anissa L.",
-      image: "/AnissaLalahoum.jpg",
+      image: "/paul-avatar.jpg",
       instagram: "AnissaLalahoum",
       text: t('testimonials.reviews.anissa')
     },
     {
       id: 5,
       name: "Rory H.",
-      image: "/RoryHarven.jpg",
+      image: "/chris-m-profile.jpg",
       instagram: "RoryHarven",
       text: t('testimonials.reviews.rory')
     },
     {
       id: 6,
       name: "Franck B.",
-      image: "/FrankBurnss_.jpg",
+      image: "/paul-avatar.jpg",
       instagram: "FrankBurnss_",
       text: t('testimonials.reviews.franck')
     },
     {
       id: 7,
       name: "Jazmin P.",
-      image: "/JazminmPerez.jpg",
+      image: "/chris-m-profile.jpg",
       instagram: "JazminmPerez",
       text: t('testimonials.reviews.jazmin')
     }
@@ -246,13 +246,14 @@ function HomeContent() {
   };
 
   // GALLERY CAROUSEL FOR HUPSCALE YOUR BUSINESS SECTION
+  const basePath = process.env.NODE_ENV === 'production' ? '/Hupscale_Finale' : '';
   const galleryImages = [
-    "/AiDesign-Shopfront3dlogobillboardmockup.png",
-    "/AiDesign-BusinessmanisworkingoncomputeradobeAIinterfacevilogoprototyperenderings.png",
-    "/AiDesign-Papertearingvilogomockuprenderings.png",
-    "/AiDesign-Outdoorstreetwallbillboardlogomockup.png",
-    "/AiDesign-Outdoorwallshadowbillboardlogomockup.png",
-    "/AiDesign-Outdoorgoldenbillboardlogodisplayeffect.png"
+    `${basePath}/AiDesign-Shopfront3dlogobillboardmockup.png`,
+    `${basePath}/AiDesign-BusinessmanisworkingoncomputeradobeAIinterfacevilogoprototyperenderings.png`,
+    `${basePath}/AiDesign-Papertearingvilogomockuprenderings.png`,
+    `${basePath}/AiDesign-Outdoorstreetwallbillboardlogomockup.png`,
+    `${basePath}/AiDesign-Outdoorwallshadowbillboardlogomockup.png`,
+    `${basePath}/AiDesign-Outdoorgoldenbillboardlogodisplayeffect.png`
   ];
 
   const [galleryIndex, setGalleryIndex] = useState(0);
