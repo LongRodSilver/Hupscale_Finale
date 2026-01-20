@@ -246,14 +246,13 @@ function HomeContent() {
   };
 
   // GALLERY CAROUSEL FOR HUPSCALE YOUR BUSINESS SECTION
-  const basePath = process.env.NODE_ENV === 'production' ? '/Hupscale_Finale' : '';
   const galleryImages = [
-    `${basePath}/AiDesign-Shopfront3dlogobillboardmockup.png`,
-    `${basePath}/AiDesign-BusinessmanisworkingoncomputeradobeAIinterfacevilogoprototyperenderings.png`,
-    `${basePath}/AiDesign-Papertearingvilogomockuprenderings.png`,
-    `${basePath}/AiDesign-Outdoorstreetwallbillboardlogomockup.png`,
-    `${basePath}/AiDesign-Outdoorwallshadowbillboardlogomockup.png`,
-    `${basePath}/AiDesign-Outdoorgoldenbillboardlogodisplayeffect.png`
+    "/Hupscale_Finale/AiDesign-Shopfront3dlogobillboardmockup.png",
+    "/Hupscale_Finale/AiDesign-BusinessmanisworkingoncomputeradobeAIinterfacevilogoprototyperenderings.png",
+    "/Hupscale_Finale/AiDesign-Papertearingvilogomockuprenderings.png",
+    "/Hupscale_Finale/AiDesign-Outdoorstreetwallbillboardlogomockup.png",
+    "/Hupscale_Finale/AiDesign-Outdoorwallshadowbillboardlogomockup.png",
+    "/Hupscale_Finale/AiDesign-Outdoorgoldenbillboardlogodisplayeffect.png"
   ];
 
   const [galleryIndex, setGalleryIndex] = useState(0);
