@@ -1,8 +1,14 @@
 'use client';
 
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from '@/hooks/useTranslations';
 import BaseImage from '@/components/BaseImage';
+
+// Helper function to get proper image path for GitHub Pages
+const getImagePath = (path: string) => {
+  const basePath = process.env.NODE_ENV === 'production' ? '/Hupscale_Finale' : ''
+  return `${basePath}${path}`
+}
 
 interface Testimonial {
   id: number;
@@ -13,7 +19,7 @@ interface Testimonial {
 }
 
 export default function LivreDor() {
-  const { t } = useTranslation();
+  const { t } = useTranslations();
   const [expandedTestimonials, setExpandedTestimonials] = useState<{ [key: number]: boolean }>({});
 
   // Existing testimonials from the homepage
@@ -21,50 +27,50 @@ export default function LivreDor() {
     {
       id: 1,
       name: "Haesoo",
-      photo: "/testimonials/haesoo.jpg",
-      testimonial: t('testimonials.haesoo'),
+      photo: getImagePath("/testimonials/haesoo.jpg"),
+      testimonial: t('testimonials.reviews.haesoo'),
       instagram: "haesoo"
     },
     {
       id: 2,
       name: "Josef L.",
-      photo: "/testimonials/josef.jpg",
-      testimonial: t('testimonials.josef'),
+      photo: getImagePath("/testimonials/josef.jpg"),
+      testimonial: t('testimonials.reviews.josef'),
       instagram: "josef"
     },
     {
       id: 3,
       name: "Géraud D.",
-      photo: "/testimonials/geraud.jpg",
-      testimonial: t('testimonials.geraud'),
+      photo: getImagePath("/testimonials/geraud.jpg"),
+      testimonial: t('testimonials.reviews.geraud'),
       instagram: "geraud"
     },
     {
       id: 4,
       name: "Anissa L.",
-      photo: "/testimonials/anissa.jpg",
-      testimonial: t('testimonials.anissa'),
+      photo: getImagePath("/testimonials/anissa.jpg"),
+      testimonial: t('testimonials.reviews.anissa'),
       instagram: "anissa"
     },
     {
       id: 5,
       name: "Rory H.",
-      photo: "/testimonials/rory.jpg",
-      testimonial: t('testimonials.rory'),
+      photo: getImagePath("/testimonials/rory.jpg"),
+      testimonial: t('testimonials.reviews.rory'),
       instagram: "rory"
     },
     {
       id: 6,
       name: "Franck B.",
-      photo: "/testimonials/franck.jpg",
-      testimonial: t('testimonials.franck'),
+      photo: getImagePath("/testimonials/franck.jpg"),
+      testimonial: t('testimonials.reviews.franck'),
       instagram: "franck"
     },
     {
       id: 7,
       name: "Jazmin P.",
-      photo: "/testimonials/jazmin.jpg",
-      testimonial: t('testimonials.jazmin'),
+      photo: getImagePath("/testimonials/jazmin.jpg"),
+      testimonial: t('testimonials.reviews.jazmin'),
       instagram: "jazmin"
     }
   ];
