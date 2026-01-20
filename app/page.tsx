@@ -12,7 +12,7 @@ import { useTranslations } from "@/hooks/useTranslations"
 
 // Helper function to get proper image path for GitHub Pages
 const getImagePath = (path: string) => {
-  const basePath = process.env.NODE_ENV === 'production' ? '/Hupscale' : ''
+  const basePath = process.env.NODE_ENV === 'production' ? '/Hupscale_Finale' : ''
   return `${basePath}${path}`
 }
 
@@ -146,33 +146,52 @@ function HomeContent() {
   const getTestimonials = () => [
     {
       id: 1,
-      name: t('testimonials.customers.sarah'),
-      image: "/Sarah-M.jpeg",
-      text: t('testimonials.reviews.sarah')
+      name: "Haesoo",
+      image: "/idolnation_.jpg",
+      instagram: "IdolNation_",
+      text: t('testimonials.reviews.haesoo')
     },
     {
       id: 2,
-      name: t('testimonials.customers.rachel'),
-      image: "/Rachel-T.jpeg",
-      text: t('testimonials.reviews.rachel')
+      name: "Josef L.",
+      image: "/JosefCEO.jpg",
+      instagram: "Josef.Ceo",
+      text: t('testimonials.reviews.josef')
     },
     {
       id: 3,
-      name: t('testimonials.customers.marcus'),
-      image: "/Marcus-D.jpeg",
-      text: t('testimonials.reviews.marcus')
+      name: "Géraud D.",
+      image: "/Gereau_Dellea.jpg",
+      instagram: "Geraud_Dellea",
+      text: t('testimonials.reviews.geraud')
     },
     {
       id: 4,
-      name: t('testimonials.customers.emma'),
-      image: "/Emma-K.jpeg",
-      text: t('testimonials.reviews.emma')
+      name: "Anissa L.",
+      image: "/AnissaLalahoum.jpg",
+      instagram: "AnissaLalahoum",
+      text: t('testimonials.reviews.anissa')
     },
     {
       id: 5,
-      name: t('testimonials.customers.paul'),
-      image: "/paul-avatar.jpg",
-      text: t('testimonials.reviews.paul')
+      name: "Rory H.",
+      image: "/RoryHarven.jpg",
+      instagram: "RoryHarven",
+      text: t('testimonials.reviews.rory')
+    },
+    {
+      id: 6,
+      name: "Franck B.",
+      image: "/FrankBurnss_.jpg",
+      instagram: "FrankBurnss_",
+      text: t('testimonials.reviews.franck')
+    },
+    {
+      id: 7,
+      name: "Jazmin P.",
+      image: "/JazminmPerez.jpg",
+      instagram: "JazminmPerez",
+      text: t('testimonials.reviews.jazmin')
     }
   ];
 
@@ -225,6 +244,47 @@ function HomeContent() {
       })
     };
   };
+
+  // GALLERY CAROUSEL FOR HUPSCALE YOUR BUSINESS SECTION
+  const galleryImages = [
+    "/AiDesign-Shopfront3dlogobillboardmockup.png",
+    "/AiDesign-BusinessmanisworkingoncomputeradobeAIinterfacevilogoprototyperenderings.png",
+    "/AiDesign-Papertearingvilogomockuprenderings.png",
+    "/AiDesign-Outdoorstreetwallbillboardlogomockup.png",
+    "/AiDesign-Outdoorwallshadowbillboardlogomockup.png",
+    "/AiDesign-Outdoorgoldenbillboardlogodisplayeffect.png"
+  ];
+
+  const [galleryIndex, setGalleryIndex] = useState(0);
+
+  // Auto-scroll gallery every 4 seconds
+  useEffect(() => {
+    const galleryInterval = setInterval(() => {
+      setGalleryIndex((prevIndex) => (prevIndex + 1) % galleryImages.length);
+    }, 4000);
+    return () => clearInterval(galleryInterval);
+  }, []);
+
+  const GalleryCarousel = () => (
+    <div className="absolute top-0 left-0 w-full h-full overflow-hidden" style={{ zIndex: 0 }}>
+      {galleryImages.map((img, idx) => (
+        <div
+          key={idx}
+          className="absolute top-0 left-0 w-full h-full transition-opacity duration-1000"
+          style={{
+            opacity: galleryIndex === idx ? 1 : 0,
+            zIndex: galleryIndex === idx ? 1 : 0
+          }}
+        >
+          <BaseImage
+            src={img}
+            alt={`Gallery ${idx + 1}`}
+            className="w-full h-full object-cover"
+          />
+        </div>
+      ))}
+    </div>
+  );
 
   // TESTIMONIALS CAROUSEL - 50 CARD INFINITE SCROLL IMPLEMENTATION
   
@@ -399,7 +459,7 @@ function HomeContent() {
           aria-label="Scroll to top"
         >
           <img 
-            src="/HUPSCALE%20Without%20Slogan.png"
+            src={getImagePath("/HUPSCALE%20Without%20Slogan.png")}
             alt="Hupscale logo"
             className="navbar-logo"
             style={{
@@ -1168,7 +1228,7 @@ function HomeContent() {
             <div className="absolute -top-12 sm:-top-16 right-4 sm:right-8 lg:right-16 flex gap-2 sm:gap-3 z-10">
               {/* Left Arrow Button - Responsive */}
               <button
-                className="min-w-[44px] min-h-[44px] w-11 h-11 sm:w-12 sm:h-12 lg:w-14 lg:h-14 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full border-none cursor-pointer flex items-center justify-center transition-all duration-200 text-[#EFEFEF]"
+                className="min-w-[44px] min-h-[44px] w-11 h-11 sm:w-12 sm:h-12 lg:w-14 lg:h-14 bg-white bg-opacity-40 hover:bg-opacity-60 rounded-full border-2 border-white border-opacity-50 cursor-pointer flex items-center justify-center transition-all duration-200 text-white shadow-lg hover:shadow-xl hover:scale-105"
                 onClick={handlePrevious}
               >
                 <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7" />
@@ -1176,7 +1236,7 @@ function HomeContent() {
               
               {/* Right Arrow Button - Responsive */}
               <button
-                className="min-w-[44px] min-h-[44px] w-11 h-11 sm:w-12 sm:h-12 lg:w-14 lg:h-14 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full border-none cursor-pointer flex items-center justify-center transition-all duration-200 text-[#EFEFEF]"
+                className="min-w-[44px] min-h-[44px] w-11 h-11 sm:w-12 sm:h-12 lg:w-14 lg:h-14 bg-white bg-opacity-40 hover:bg-opacity-60 rounded-full border-2 border-white border-opacity-50 cursor-pointer flex items-center justify-center transition-all duration-200 text-white shadow-lg hover:shadow-xl hover:scale-105"
                 onClick={handleNext}
               >
                 <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7" />
@@ -1218,6 +1278,8 @@ function HomeContent() {
                         flexShrink: 0,
                         minWidth: `${CARD_WIDTH}px`
                       }}
+                      onMouseEnter={() => setIsAutoPlaying(false)}
+                      onMouseLeave={() => setIsAutoPlaying(true)}
                     >
                       {/* Star Rating - Compact Spacing */}
                       <div className="mb-3">
@@ -1239,15 +1301,30 @@ function HomeContent() {
                         </p>
                         
                         {/* Profile Section - Contained Within Card Boundaries */}
-                        <div className="flex items-center gap-3 lg:gap-4">
-                          <img 
-                            src={getImagePath(testimonial.image)} 
-                            alt={testimonial.name} 
-                            className="w-16 h-16 aspect-square rounded-full object-cover flex-shrink-0"
-                          />
-                          <p className="font-onest text-base sm:text-lg lg:text-xl font-bold text-[rgb(24,24,24)]">
-                            {testimonial.name}
-                          </p>
+                        <div className="flex items-center justify-between gap-3 lg:gap-4">
+                          <div className="flex items-center gap-3 lg:gap-4">
+                            <img 
+                              src={getImagePath(testimonial.image)} 
+                              alt={testimonial.name} 
+                              className="w-16 h-16 aspect-square rounded-full object-cover flex-shrink-0"
+                            />
+                            <p className="font-onest text-base sm:text-lg lg:text-xl font-bold text-[rgb(24,24,24)]">
+                              {testimonial.name}
+                            </p>
+                          </div>
+                          {testimonial.instagram && (
+                            <a 
+                              href={`https://instagram.com/${testimonial.instagram}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex-shrink-0 w-10 h-10 flex items-center justify-center bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 rounded-full hover:scale-110 transition-transform duration-200"
+                              aria-label={`Visit ${testimonial.name} on Instagram`}
+                            >
+                              <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                              </svg>
+                            </a>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -1278,7 +1355,7 @@ function HomeContent() {
                 <div className="shrink-0 w-11/12 max-w-sm snap-center bg-white rounded-2xl p-6 shadow-lg">
                   <div className="w-24 h-24 mx-auto mb-4">
                     <img 
-                      src={getImagePath("/team-pascal.png")} 
+                      src={getImagePath("/team-scalpa.png")} 
                       alt="Pascal Delorantis"
                       className="w-full h-full rounded-full object-cover"
                     />
@@ -1301,10 +1378,10 @@ function HomeContent() {
                     </button>
                   </div>
                   <div className="flex justify-center gap-3">
-                    <a href="https://instagram.com/hupscale" className="w-14 h-14 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
+                    <a href="https://instagram.com/scalpadelorantis" className="w-14 h-14 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
                       <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                     </a>
-                    <a href="mailto:john@hupscale.com" className="w-14 h-14 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
+                    <a href="mailto:contact@hupscale.com" className="w-14 h-14 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
                       <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
                     </a>
                   </div>
@@ -1337,10 +1414,10 @@ function HomeContent() {
                     </button>
                   </div>
                   <div className="flex justify-center gap-3">
-                    <a href="https://instagram.com/hupscale" className="w-14 h-14 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
-                      <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    <a href="https://fr.linkedin.com/in/fr%C3%A9d%C3%A9ric-cordat-94653b31" target="_blank" rel="noopener noreferrer" className="w-14 h-14 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
+                      <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                     </a>
-                    <a href="mailto:john@hupscale.com" className="w-14 h-14 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
+                    <a href="mailto:frederic.cordat@gmail.com" className="w-14 h-14 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
                       <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
                     </a>
                   </div>
@@ -1350,7 +1427,7 @@ function HomeContent() {
                 <div className="shrink-0 w-11/12 max-w-sm snap-center bg-white rounded-2xl p-6 shadow-lg">
                   <div className="w-24 h-24 mx-auto mb-4">
                     <img 
-                      src={getImagePath("/team-rodney.jpg")} 
+                      src={getImagePath("/team-rodney-new.jpg")} 
                       alt="Rodney Onanga"
                       className="w-full h-full rounded-full object-cover"
                     />
@@ -1373,10 +1450,10 @@ function HomeContent() {
                     </button>
                   </div>
                   <div className="flex justify-center gap-3">
-                    <a href="https://instagram.com/hupscale" className="w-14 h-14 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
+                    <a href="https://instagram.com/yudi_q" target="_blank" rel="noopener noreferrer" className="w-14 h-14 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
                       <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                     </a>
-                    <a href="mailto:jane@hupscale.com" className="w-14 h-14 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
+                    <a href="mailto:onangaro@hotmail.com" className="w-14 h-14 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
                       <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
                     </a>
                   </div>
@@ -1409,10 +1486,10 @@ function HomeContent() {
                     </button>
                   </div>
                   <div className="flex justify-center gap-3">
-                    <a href="https://instagram.com/hupscale" className="w-14 h-14 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
+                    <a href="https://instagram.com/schmidtleanok" target="_blank" rel="noopener noreferrer" className="w-14 h-14 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
                       <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                     </a>
-                    <a href="mailto:mike@hupscale.com" className="w-14 h-14 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
+                    <a href="mailto:Leandoschmidt@gmail.com" className="w-14 h-14 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
                       <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
                     </a>
                   </div>
@@ -1429,7 +1506,7 @@ function HomeContent() {
                 <div className="bg-white rounded-2xl p-6 shadow-lg w-full max-w-sm">
                   <div className="w-32 h-32 mx-auto mb-4">
                     <img 
-                      src={getImagePath("/team-pascal.png")} 
+                      src={getImagePath("/team-scalpa.png")} 
                       alt="Pascal Delorantis"
                       className="w-full h-full rounded-full object-cover"
                     />
@@ -1451,9 +1528,9 @@ function HomeContent() {
                       {expandedBios[1] ? t('team.readLess') : t('team.readMore')}
                     </button>
                   </div>
-                  <div className="flex justify-center gap-3">                    <a href="https://instagram.com/hupscale" className="w-11 h-11 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
+                  <div className="flex justify-center gap-3">                    <a href="https://instagram.com/scalpadelorantis" className="w-11 h-11 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
                       <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>                    </a>
-                    <a href="mailto:john@hupscale.com" className="w-11 h-11 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
+                    <a href="mailto:contact@hupscale.com" className="w-11 h-11 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
                       <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
                     </a>
                   </div>
@@ -1485,9 +1562,9 @@ function HomeContent() {
                       {expandedBios[2] ? t('team.readLess') : t('team.readMore')}
                     </button>
                   </div>
-                  <div className="flex justify-center gap-3">                    <a href="https://instagram.com/hupscale" className="w-11 h-11 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
-                      <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>                    </a>
-                    <a href="mailto:john@hupscale.com" className="w-11 h-11 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
+                  <div className="flex justify-center gap-3">                    <a href="https://fr.linkedin.com/in/fr%C3%A9d%C3%A9ric-cordat-94653b31" target="_blank" rel="noopener noreferrer" className="w-11 h-11 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
+                      <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>                    </a>
+                    <a href="mailto:frederic.cordat@gmail.com" className="w-11 h-11 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
                       <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
                     </a>
                   </div>
@@ -1497,7 +1574,7 @@ function HomeContent() {
                 <div className="bg-white rounded-2xl p-6 shadow-lg w-full max-w-sm">
                   <div className="w-32 h-32 mx-auto mb-4">
                     <img 
-                      src={getImagePath("/team-rodney.jpg")} 
+                      src={getImagePath("/team-rodney-new.jpg")} 
                       alt="Rodney Onanga"
                       className="w-full h-full rounded-full object-cover"
                     />
@@ -1520,10 +1597,10 @@ function HomeContent() {
                     </button>
                   </div>
                   <div className="flex justify-center gap-3">
-                    <a href="https://instagram.com/hupscale" className="w-11 h-11 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
+                    <a href="https://instagram.com/yudi_q" target="_blank" rel="noopener noreferrer" className="w-11 h-11 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
                       <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                     </a>
-                    <a href="mailto:jane@hupscale.com" className="w-11 h-11 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
+                    <a href="mailto:onangaro@hotmail.com" className="w-11 h-11 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
                       <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
                     </a>
                   </div>
@@ -1556,10 +1633,10 @@ function HomeContent() {
                     </button>
                   </div>
                   <div className="flex justify-center gap-3">
-                    <a href="https://instagram.com/hupscale" className="w-11 h-11 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
+                    <a href="https://instagram.com/schmidtleanok" target="_blank" rel="noopener noreferrer" className="w-11 h-11 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
                       <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                     </a>
-                    <a href="mailto:mike@hupscale.com" className="w-11 h-11 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
+                    <a href="mailto:Leandoschmidt@gmail.com" className="w-11 h-11 flex items-center justify-center bg-[#007B79] rounded-full hover:bg-[#006666] transition">
                       <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
                     </a>
                   </div>
@@ -1582,16 +1659,8 @@ function HomeContent() {
           }}
         >
         
-        {/* Background Video */}
-        <video
-          src={getImagePath("/video_upscaled_4k.mp4")}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute top-0 left-0 w-full h-full object-cover"
-          style={{ zIndex: 0 }}
-        />
+        {/* Gallery Carousel */}
+        <GalleryCarousel />
         
         {/* Text content overlay - Responsive */}
         <div className="relative text-center lg:text-right text-white max-w-2xl" style={{ zIndex: 1 }}>
@@ -1606,9 +1675,14 @@ function HomeContent() {
 {t('interaction.heading2.your')} <span style={{ color: '#007B79' }}>{t('interaction.heading2.business')}</span>
           </p>
           
-          <a href="mailto:hello@hupscale.com" className="bg-[#007B79] text-white border-none rounded-full px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold cursor-pointer uppercase shadow-lg hover:shadow-xl transition-all duration-200 min-h-[44px] min-w-[44px] no-underline inline-block text-center">
-            {t('interaction.cta')}
-          </a>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-end items-center">
+            <a href="mailto:hello@hupscale.com" className="bg-[#007B79] text-white border-none rounded-full px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold cursor-pointer uppercase shadow-lg hover:shadow-xl transition-all duration-200 min-h-[44px] min-w-[44px] no-underline inline-block text-center">
+              {t('interaction.cta')}
+            </a>
+            <a href="/livre-dor" className="bg-white text-[#007B79] border-2 border-[#007B79] rounded-full px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold cursor-pointer uppercase shadow-lg hover:shadow-xl transition-all duration-200 min-h-[44px] min-w-[44px] no-underline inline-block text-center">
+              {t('interaction.guestbook')}
+            </a>
+          </div>
         </div>
         
         </section>
