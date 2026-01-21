@@ -1110,7 +1110,7 @@ function HomeContent() {
                 opacity: isAnimating ? 0 : 1
               }}
             >
-              <CardContent className="relative h-full p-6 sm:p-8 lg:p-12">
+              <CardContent className="relative h-auto p-6 sm:p-8 lg:p-12">
                 {/* Service Title Pill - Responsive */}
                 <div className="bg-[#00BCBE] text-[#232323] font-inter font-black rounded-full px-6 py-3 sm:px-8 sm:py-4 text-lg sm:text-xl lg:text-2xl xl:text-3xl leading-tight mb-6 lg:mb-8 inline-block transition-all duration-500 ease-out">
                   {getServiceCard(activeService)?.title}
@@ -1435,7 +1435,7 @@ function HomeContent() {
                       <div className="flex items-center gap-3">
                         {testimonial.image && (
                           <img 
-                            src={testimonial.image} 
+                            src={getImagePath(testimonial.image)} 
                             alt={testimonial.name}
                             className="w-12 h-12 rounded-full object-cover"
                           />
