@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useTranslations } from '@/hooks/useTranslations';
+import { useLanguage } from '@/contexts/LanguageContext';
 import TestimonialForm from '@/components/TestimonialForm';
 
 // Helper function to get proper image path for GitHub Pages
@@ -21,10 +22,12 @@ interface Testimonial {
 }
 
 export default function LivreDor() {
-  const { t } = useTranslations();
+  const { t, language } = useTranslations();
+  const { setLanguage } = useLanguage();
   const [expandedTestimonials, setExpandedTestimonials] = useState<{ [key: number]: boolean }>({});
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Fallback testimonials (hardcoded from homepage)
   const fallbackTestimonials: Testimonial[] = [
@@ -105,7 +108,374 @@ export default function LivreDor() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-[#E8F5F5]">
+    <div className="relative min-h-screen bg-gradient-to-b from-white to-[#E8F5F5]">
+      {/* EXACT NAVIGATION MENU FROM HOMEPAGE */}
+      <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 w-full max-w-fit px-4" style={{
+        backgroundColor: 'rgb(244, 244, 244)',
+        borderRadius: '206px',
+        height: '60px',
+        padding: '0.75rem 1rem',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        margin: '0 auto',
+        border: '1px solid rgb(35, 35, 35)',
+        boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+        zIndex: 9999,
+        minWidth: 'fit-content'
+      }}>
+        
+        {/* HUPSCALE Logo - Image */}
+        <button
+          onClick={() => window.location.href = getImagePath('/')}
+          style={{
+            background: 'none',
+            border: 'none',
+            padding: 0,
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            visibility: 'visible',
+            opacity: 1,
+            zIndex: 10001
+          }}
+          aria-label="Go to homepage"
+        >
+          <img 
+            src={getImagePath("/HUPSCALE%20Without%20Slogan.png")}
+            alt="Hupscale logo"
+            className="navbar-logo"
+            style={{
+              height: '40px',
+              width: 'auto',
+              display: 'block',
+              visibility: 'visible',
+              opacity: 1,
+              zIndex: 10000,
+              objectFit: 'contain'
+            }}
+          />
+        </button>
+        
+        {/* Mobile menu button */}
+        <button 
+          className="md:hidden flex items-center justify-center mobile-menu-button text-[rgb(35,35,35)]" 
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          style={{
+            marginLeft: 'auto',
+            zIndex: 10001,
+            position: 'relative'
+          }}
+        >
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd" />
+          </svg>
+        </button>
+
+        {/* Desktop Navigation */}
+        <div 
+          className="hidden md:flex items-center flex-1 justify-center"
+          style={{ gap: '12px' }}
+        >
+          {/* Benefits */}
+          <button
+            onClick={() => window.location.href = getImagePath('/#benefits')}
+            style={{
+              background: 'none',
+              border: 'none',
+              color: 'rgb(35, 35, 35)',
+              fontSize: '13px',
+              fontWeight: '500',
+              fontFamily: 'LEMONMILK, Morgan, sans-serif',
+              transition: 'background-color 0.3s ease',
+              cursor: 'pointer',
+              whiteSpace: 'nowrap',
+              borderRadius: '100px',
+              padding: '8px 12px',
+              backgroundColor: 'rgba(0, 0, 0, 0)'
+            }}
+            onMouseEnter={(e) => {
+              const target = e.target as HTMLElement;
+              target.style.backgroundColor = 'rgb(0, 176, 129)';
+            }}
+            onMouseLeave={(e) => {
+              const target = e.target as HTMLElement;
+              target.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+            }}
+          >
+            {t('navigation.benefits')}
+          </button>
+
+          {/* Services */}
+          <button
+            onClick={() => window.location.href = getImagePath('/#services')}
+            style={{
+              background: 'none',
+              border: 'none',
+              color: 'rgb(35, 35, 35)',
+              fontSize: '13px',
+              fontWeight: '500',
+              fontFamily: 'LEMONMILK, Morgan, sans-serif',
+              transition: 'background-color 0.3s ease',
+              cursor: 'pointer',
+              whiteSpace: 'nowrap',
+              borderRadius: '100px',
+              padding: '8px 12px',
+              backgroundColor: 'rgba(0, 0, 0, 0)'
+            }}
+            onMouseEnter={(e) => {
+              const target = e.target as HTMLElement;
+              target.style.backgroundColor = 'rgb(0, 176, 129)';
+            }}
+            onMouseLeave={(e) => {
+              const target = e.target as HTMLElement;
+              target.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+            }}
+          >
+            {t('navigation.services')}
+          </button>
+
+          {/* Testimonials */}
+          <button
+            onClick={() => window.location.href = getImagePath('/#testimonials')}
+            style={{
+              background: 'none',
+              border: 'none',
+              color: 'rgb(35, 35, 35)',
+              fontSize: '13px',
+              fontWeight: '500',
+              fontFamily: 'LEMONMILK, Morgan, sans-serif',
+              transition: 'background-color 0.3s ease',
+              cursor: 'pointer',
+              whiteSpace: 'nowrap',
+              borderRadius: '100px',
+              padding: '8px 12px',
+              backgroundColor: 'rgba(0, 0, 0, 0)'
+            }}
+            onMouseEnter={(e) => {
+              const target = e.target as HTMLElement;
+              target.style.backgroundColor = 'rgb(0, 176, 129)';
+            }}
+            onMouseLeave={(e) => {
+              const target = e.target as HTMLElement;
+              target.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+            }}
+          >
+            {t('navigation.testimonials')}
+          </button>
+
+          {/* FAQ's */}
+          <button
+            onClick={() => window.location.href = getImagePath('/#faqs')}
+            style={{
+              background: 'none',
+              border: 'none',
+              color: 'rgb(35, 35, 35)',
+              fontSize: '13px',
+              fontWeight: '500',
+              fontFamily: 'LEMONMILK, Morgan, sans-serif',
+              transition: 'background-color 0.3s ease',
+              cursor: 'pointer',
+              whiteSpace: 'nowrap',
+              borderRadius: '100px',
+              padding: '8px 12px',
+              backgroundColor: 'rgba(0, 0, 0, 0)'
+            }}
+            onMouseEnter={(e) => {
+              const target = e.target as HTMLElement;
+              target.style.backgroundColor = 'rgb(0, 176, 129)';
+            }}
+            onMouseLeave={(e) => {
+              const target = e.target as HTMLElement;
+              target.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+            }}
+          >
+            {t('navigation.faqs')}
+          </button>
+
+          {/* Guestbook / Livre d'Or */}
+          <button
+            onClick={() => window.location.href = getImagePath('/livre-dor/')}
+            style={{
+              background: 'none',
+              border: 'none',
+              color: 'rgb(35, 35, 35)',
+              fontSize: '13px',
+              fontWeight: '500',
+              fontFamily: 'LEMONMILK, Morgan, sans-serif',
+              transition: 'background-color 0.3s ease',
+              cursor: 'pointer',
+              whiteSpace: 'nowrap',
+              borderRadius: '100px',
+              padding: '8px 12px',
+              backgroundColor: 'rgba(0, 0, 0, 0)'
+            }}
+            onMouseEnter={(e) => {
+              const target = e.target as HTMLElement;
+              target.style.backgroundColor = 'rgb(0, 176, 129)';
+            }}
+            onMouseLeave={(e) => {
+              const target = e.target as HTMLElement;
+              target.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+            }}
+          >
+            {t('navigation.guestbook')}
+          </button>
+        </div>
+        
+        {/* Language Toggle Buttons */}
+        <div 
+          className="hidden md:flex items-center"
+          style={{ gap: '6px', marginLeft: '12px' }}
+        >
+          {/* French Flag Button */}
+          <button
+            aria-label={t('navigation.switchToFrench')}
+            className={`w-10 h-10 rounded-full border-0 bg-white flex items-center justify-center transition-all duration-200 hover:scale-110 hover:bg-gray-50 cursor-pointer shadow-sm ${
+              language === 'fr' ? 'ring-2 ring-[#007B79] ring-offset-2' : ''
+            }`}
+            onClick={() => setLanguage('fr')}
+          >
+            <svg width="24" height="24" viewBox="0 0 24 18" className="w-6 h-4">
+              <rect x="0" y="0" width="8" height="18" fill="#002395"/>
+              <rect x="8" y="0" width="8" height="18" fill="#FFFFFF"/>
+              <rect x="16" y="0" width="8" height="18" fill="#ED2939"/>
+            </svg>
+          </button>
+          
+          {/* British Flag Button */}
+          <button
+            aria-label={t('navigation.switchToEnglish')}
+            className={`w-10 h-10 rounded-full border-0 bg-white flex items-center justify-center transition-all duration-200 hover:scale-110 hover:bg-gray-50 cursor-pointer shadow-sm ${
+              language === 'en' ? 'ring-2 ring-[#007B79] ring-offset-2' : ''
+            }`}
+            onClick={() => setLanguage('en')}
+          >
+            <svg width="24" height="24" viewBox="0 0 24 18" className="w-6 h-4">
+              <rect width="24" height="18" fill="#012169"/>
+              <path d="M0,0 L24,18 M24,0 L0,18" stroke="#FFFFFF" strokeWidth="2"/>
+              <path d="M0,0 L24,18 M24,0 L0,18" stroke="#C8102E" strokeWidth="1"/>
+              <path d="M12,0 L12,18 M0,9 L24,9" stroke="#FFFFFF" strokeWidth="3"/>
+              <path d="M12,0 L12,18 M0,9 L24,9" stroke="#C8102E" strokeWidth="2"/>
+            </svg>
+          </button>
+        </div>
+        
+        {/* Get Started Button - Updated to contact@hupscale.com */}
+        <a
+          href="mailto:contact@hupscale.com"
+          className="hidden md:block bg-[rgb(0,123,121)] text-[rgb(5,5,5)] border border-[rgb(5,5,5)] rounded-full px-4 lg:px-5 py-2 lg:py-3 text-xs lg:text-sm font-medium font-inter cursor-pointer transition-all duration-200 shadow-sm whitespace-nowrap no-underline inline-block text-center"
+          style={{ marginLeft: '12px', fontSize: '13px', fontFamily: 'LEMONMILK, Morgan, sans-serif' }}
+        >
+          {t('navigation.getStarted')}
+        </a>
+        
+      </nav>
+
+      {/* Mobile Menu Overlay */}
+      {isMobileMenuOpen && (
+        <div 
+          className="mobile-menu-overlay md:hidden fixed inset-0 bg-black bg-opacity-50"
+          style={{ zIndex: 100000 }}
+          onClick={() => setIsMobileMenuOpen(false)}
+        >
+          <div 
+            className="fixed top-20 left-4 right-4 bg-white rounded-2xl p-6 shadow-xl"
+            style={{ 
+              maxWidth: 'calc(100vw - 32px)', 
+              zIndex: 100001,
+              maxHeight: 'calc(100vh - 120px)',
+              overflowY: 'auto'
+            }}
+            onClick={(e) => e.stopPropagation()}
+          > 
+            <div className="flex flex-col space-y-4">
+              <button
+                className="text-left min-h-[44px] py-3 px-4 text-[rgb(35,35,35)] hover:bg-gray-100 rounded-lg"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  window.location.href = getImagePath('/#benefits');
+                }}
+              >
+                {t('navigation.benefits')}
+              </button>
+              <button
+                className="text-left min-h-[44px] py-3 px-4 text-[rgb(35,35,35)] hover:bg-gray-100 rounded-lg"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  window.location.href = getImagePath('/#services');
+                }}
+              >
+                {t('navigation.services')}
+              </button>
+              <button
+                className="text-left min-h-[44px] py-3 px-4 text-[rgb(35,35,35)] hover:bg-gray-100 rounded-lg"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  window.location.href = getImagePath('/#testimonials');
+                }}
+              >
+                {t('navigation.testimonials')}
+              </button>
+              <button
+                className="text-left min-h-[44px] py-3 px-4 text-[rgb(35,35,35)] hover:bg-gray-100 rounded-lg"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  window.location.href = getImagePath('/#faqs');
+                }}
+              >
+                {t('navigation.faqs')}
+              </button>
+              
+              {/* Language Toggle Buttons - Mobile */}
+              <div className="flex items-center justify-center gap-2 mt-4">
+                {/* French Flag Button */}
+                <button
+                  aria-label={t('navigation.switchToFrench')}
+                  className={`w-10 h-10 rounded-full border-0 bg-white flex items-center justify-center transition-all duration-200 hover:scale-110 hover:bg-gray-50 cursor-pointer shadow-sm ${
+                    language === 'fr' ? 'ring-2 ring-[#007B79] ring-offset-2' : ''
+                  }`}
+                  onClick={() => setLanguage('fr')}
+                >
+                  <svg width="24" height="24" viewBox="0 0 24 18" className="w-6 h-4">
+                    <rect x="0" y="0" width="8" height="18" fill="#002395"/>
+                    <rect x="8" y="0" width="8" height="18" fill="#FFFFFF"/>
+                    <rect x="16" y="0" width="8" height="18" fill="#ED2939"/>
+                  </svg>
+                </button>
+                
+                {/* British Flag Button */}
+                <button
+                  aria-label={t('navigation.switchToEnglish')}
+                  className={`w-10 h-10 rounded-full border-0 bg-white flex items-center justify-center transition-all duration-200 hover:scale-110 hover:bg-gray-50 cursor-pointer shadow-sm ${
+                    language === 'en' ? 'ring-2 ring-[#007B79] ring-offset-2' : ''
+                  }`}
+                  onClick={() => setLanguage('en')}
+                >
+                  <svg width="24" height="24" viewBox="0 0 24 18" className="w-6 h-4">
+                    <rect width="24" height="18" fill="#012169"/>
+                    <path d="M0,0 L24,18 M24,0 L0,18" stroke="#FFFFFF" strokeWidth="2"/>
+                    <path d="M0,0 L24,18 M24,0 L0,18" stroke="#C8102E" strokeWidth="1"/>
+                    <path d="M12,0 L12,18 M0,9 L24,9" stroke="#FFFFFF" strokeWidth="3"/>
+                    <path d="M12,0 L12,18 M0,9 L24,9" stroke="#C8102E" strokeWidth="2"/>
+                  </svg>
+                </button>
+              </div>
+              
+              <a
+                href="mailto:contact@hupscale.com"
+                className="bg-[rgb(0,123,121)] text-[rgb(5,5,5)] border border-[rgb(5,5,5)] rounded-full px-6 py-3 text-sm font-medium text-center mt-4 no-underline inline-block"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                }}
+              >
+                {t('navigation.getStarted')}
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-4">
         <div className="max-w-6xl mx-auto text-center">
@@ -213,7 +583,7 @@ export default function LivreDor() {
             Join our growing community of successful clients and let's make your brand shine.
           </p>
           <a
-            href={getImagePath('/#contact')}
+            href="mailto:contact@hupscale.com"
             className="inline-block bg-white text-[#007B79] px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-100 hover:shadow-2xl hover:scale-105 transition-all duration-300"
           >
             Get Started
