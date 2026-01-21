@@ -1717,6 +1717,9 @@ function HomeContent() {
         
         </section>
         
+        {/* Section 7: Contact Us - Layer 7 */}
+        <ContactSection />
+        
       </div> {/* End scroll-container */}
 
       {/* FAQ section stays outside - it's not sticky */}
@@ -1846,9 +1849,6 @@ function HomeContent() {
         </div>
         </div>
       </section>
-
-      {/* Section 9: Contact Us */}
-      <ContactSection />
 
       {/* PDF Modal */}
       <PdfModal
