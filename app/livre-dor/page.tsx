@@ -71,6 +71,7 @@ export default function LivreDor() {
   // Load approved testimonials from Google Sheets
   useEffect(() => {
     const loadTestimonials = async () => {
+      setIsLoading(true);
       try {
         const response = await fetch(GOOGLE_SCRIPT_URL);
         if (response.ok) {
@@ -93,7 +94,7 @@ export default function LivreDor() {
     };
 
     loadTestimonials();
-  }, [language]); // Reload when language changes
+  }, [language, t]); // Reload when language changes
 
   const toggleTestimonial = (index: number) => {
     setExpandedTestimonials(prev => ({
