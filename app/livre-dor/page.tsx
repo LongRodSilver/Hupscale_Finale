@@ -73,7 +73,14 @@ export default function LivreDor() {
     const loadTestimonials = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch(GOOGLE_SCRIPT_URL);
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
+        
+        const response = await fetch(GOOGLE_SCRIPT_URL, {
+          signal: controller.signal
+        });
+        clearTimeout(timeoutId);
+        
         if (response.ok) {
           const data = await response.json();
           if (data && data.length > 0) {
@@ -94,7 +101,7 @@ export default function LivreDor() {
     };
 
     loadTestimonials();
-  }, [language, t]); // Reload when language changes
+  }, [language]); // Reload when language changes
 
   const toggleTestimonial = (index: number) => {
     setExpandedTestimonials(prev => ({
