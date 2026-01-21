@@ -29,40 +29,40 @@ export default function LivreDor() {
   const [isLoading, setIsLoading] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Fallback testimonials (hardcoded from homepage)
-  const fallbackTestimonials: Testimonial[] = [
+  // Fallback testimonials (hardcoded from homepage) - will use translation keys
+  const getFallbackTestimonials = (): Testimonial[] => [
     {
-      name: "Haesoo",
+      name: t('testimonials.customers.haesoo'),
       testimony: t('testimonials.reviews.haesoo'),
       instagram: "haesoo"
     },
     {
-      name: "Josef L.",
+      name: t('testimonials.customers.josef'),
       testimony: t('testimonials.reviews.josef'),
       instagram: "josef"
     },
     {
-      name: "Géraud D.",
+      name: t('testimonials.customers.geraud'),
       testimony: t('testimonials.reviews.geraud'),
       instagram: "geraud"
     },
     {
-      name: "Anissa L.",
+      name: t('testimonials.customers.anissa'),
       testimony: t('testimonials.reviews.anissa'),
       instagram: "anissa"
     },
     {
-      name: "Rory H.",
+      name: t('testimonials.customers.rory'),
       testimony: t('testimonials.reviews.rory'),
       instagram: "rory"
     },
     {
-      name: "Franck B.",
+      name: t('testimonials.customers.franck'),
       testimony: t('testimonials.reviews.franck'),
       instagram: "franck"
     },
     {
-      name: "Jazmin P.",
+      name: t('testimonials.customers.jazmin'),
       testimony: t('testimonials.reviews.jazmin'),
       instagram: "jazmin"
     }
@@ -79,21 +79,21 @@ export default function LivreDor() {
             setTestimonials(data);
           } else {
             // Use fallback if no approved testimonials
-            setTestimonials(fallbackTestimonials);
+            setTestimonials(getFallbackTestimonials());
           }
         } else {
-          setTestimonials(fallbackTestimonials);
+          setTestimonials(getFallbackTestimonials());
         }
       } catch (error) {
         console.error('Failed to load testimonials:', error);
-        setTestimonials(fallbackTestimonials);
+        setTestimonials(getFallbackTestimonials());
       } finally {
         setIsLoading(false);
       }
     };
 
     loadTestimonials();
-  }, []);
+  }, [language]); // Reload when language changes
 
   const toggleTestimonial = (index: number) => {
     setExpandedTestimonials(prev => ({
@@ -480,10 +480,10 @@ export default function LivreDor() {
       <section className="pt-32 pb-16 px-4">
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl font-bold text-[#181818] mb-6">
-            {t('navigation.guestbook')}
+            {t('guestbook.title')}
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Share your experience with Hupscale and read what others have to say about working with us.
+            {t('guestbook.subtitle')}
           </p>
         </div>
       </section>
@@ -492,13 +492,13 @@ export default function LivreDor() {
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-[#181818] text-center mb-12">
-            What Our Clients Say
+            {t('guestbook.testimonials_title')}
           </h2>
 
           {isLoading ? (
             <div className="text-center py-12">
               <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-[#007B79]"></div>
-              <p className="mt-4 text-gray-600">Loading testimonials...</p>
+              <p className="mt-4 text-gray-600">{t('guestbook.loading')}</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -526,12 +526,12 @@ export default function LivreDor() {
                       </h3>
                       {testimonial.instagram && (
                         <a
-                          href={`https://instagram.com/${testimonial.instagram}`}
+                          href={`https://instagram.com/${testimonial.instagram.replace('@', '')}`}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-[#007B79] hover:text-[#006666] transition-colors"
                         >
-                          @{testimonial.instagram}
+                          @{testimonial.instagram.replace('@', '')}
                         </a>
                       )}
                     </div>
@@ -550,7 +550,7 @@ export default function LivreDor() {
                       onClick={() => toggleTestimonial(index)}
                       className="text-[#007B79] hover:text-[#006666] font-semibold transition-colors"
                     >
-                      {expandedTestimonials[index] ? 'Show less' : 'Read more'}
+                      {expandedTestimonials[index] ? t('guestbook.show_less') : t('guestbook.read_more')}
                     </button>
                   )}
                 </div>
@@ -564,10 +564,10 @@ export default function LivreDor() {
       <section className="py-16 px-4 bg-white">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-4xl font-bold text-[#181818] text-center mb-4">
-            Share Your Experience
+            {t('guestbook.form_title')}
           </h2>
           <p className="text-gray-600 text-center mb-12">
-            We'd love to hear about your experience working with Hupscale. Your testimonial helps others discover how we can help them grow.
+            {t('guestbook.form_subtitle')}
           </p>
           <TestimonialForm />
         </div>
@@ -577,16 +577,16 @@ export default function LivreDor() {
       <section className="py-20 px-4">
         <div className="max-w-4xl mx-auto bg-gradient-to-br from-[#007B79] to-[#00A8A6] rounded-3xl p-12 text-center shadow-2xl">
           <h2 className="text-4xl font-bold text-white mb-4">
-            Ready to Scale Your Business?
+            {t('guestbook.cta_title')}
           </h2>
           <p className="text-white/90 text-lg mb-8">
-            Join our growing community of successful clients and let's make your brand shine.
+            {t('guestbook.cta_subtitle')}
           </p>
           <a
             href="mailto:contact@hupscale.com"
             className="inline-block bg-white text-[#007B79] px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-100 hover:shadow-2xl hover:scale-105 transition-all duration-300"
           >
-            Get Started
+            {t('guestbook.cta_button')}
           </a>
         </div>
       </section>

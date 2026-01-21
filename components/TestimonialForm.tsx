@@ -53,7 +53,7 @@ export default function TestimonialForm() {
     e.preventDefault();
     
     if (!formData.name || !formData.testimony) {
-      setErrorMessage('Please fill in all required fields (Name and Testimony)');
+      setErrorMessage(t('guestbook.form_error'));
       setSubmitStatus('error');
       return;
     }
@@ -101,7 +101,7 @@ export default function TestimonialForm() {
 
     } catch (error) {
       console.error('Submission error:', error);
-      setErrorMessage('An error occurred while submitting your testimonial. Please try again.');
+      setErrorMessage(t('guestbook.form_error'));
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -118,16 +118,16 @@ export default function TestimonialForm() {
             </svg>
           </div>
           <h3 className="text-2xl font-bold text-[#181818] mb-4">
-            Thank You!
+            {t('guestbook.form_success').split('!')[0]}!
           </h3>
           <p className="text-gray-600 mb-6">
-            Your testimonial has been submitted successfully. It will appear on the page once approved.
+            {t('guestbook.form_success')}
           </p>
           <button
             onClick={() => setSubmitStatus('idle')}
             className="bg-[#007B79] text-white px-8 py-3 rounded-full font-bold hover:bg-[#006666] transition-all duration-300"
           >
-            Submit Another Testimonial
+            {t('guestbook.form_submit')}
           </button>
         </div>
       ) : (
@@ -135,7 +135,7 @@ export default function TestimonialForm() {
           {/* Name Field */}
           <div>
             <label htmlFor="name" className="block text-sm font-bold text-[#181818] mb-2">
-              Name <span className="text-red-500">*</span>
+              {t('guestbook.form_name')} <span className="text-red-500">*</span>
             </label>
             <input
               type="text"
@@ -145,14 +145,14 @@ export default function TestimonialForm() {
               onChange={handleInputChange}
               required
               className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#007B79] focus:outline-none transition-colors"
-              placeholder="Your full name"
+              placeholder={t('guestbook.form_name_placeholder')}
             />
           </div>
 
           {/* Instagram Handle */}
           <div>
             <label htmlFor="instagram" className="block text-sm font-bold text-[#181818] mb-2">
-              Instagram Handle <span className="text-gray-400">(Optional)</span>
+              {t('guestbook.form_instagram')}
             </label>
             <div className="relative">
               <span className="absolute left-4 top-3 text-gray-400">@</span>
@@ -163,7 +163,7 @@ export default function TestimonialForm() {
                 value={formData.instagram}
                 onChange={handleInputChange}
                 className="w-full pl-8 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#007B79] focus:outline-none transition-colors"
-                placeholder="yourusername"
+                placeholder={t('guestbook.form_instagram_placeholder')}
               />
             </div>
           </div>
@@ -171,7 +171,7 @@ export default function TestimonialForm() {
           {/* Testimony */}
           <div>
             <label htmlFor="testimony" className="block text-sm font-bold text-[#181818] mb-2">
-              Your Testimonial <span className="text-red-500">*</span>
+              {t('guestbook.form_testimony')} <span className="text-red-500">*</span>
             </label>
             <textarea
               id="testimony"
@@ -181,14 +181,14 @@ export default function TestimonialForm() {
               required
               rows={6}
               className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#007B79] focus:outline-none transition-colors resize-none"
-              placeholder="Share your experience with Hupscale..."
+              placeholder={t('guestbook.form_testimony_placeholder')}
             />
           </div>
 
           {/* Photo Upload */}
           <div>
             <label htmlFor="photo-upload" className="block text-sm font-bold text-[#181818] mb-2">
-              Photo <span className="text-gray-400">(Optional)</span>
+              {t('guestbook.form_photo')}
             </label>
             <input
               type="file"
@@ -217,7 +217,7 @@ export default function TestimonialForm() {
             disabled={isSubmitting}
             className="w-full bg-[#007B79] text-white py-4 rounded-full font-bold text-lg hover:bg-[#006666] hover:shadow-2xl hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
           >
-            {isSubmitting ? 'Submitting...' : 'Submit Testimonial'}
+            {isSubmitting ? t('guestbook.form_uploading') : t('guestbook.form_submit')}
           </button>
 
           <p className="text-sm text-gray-500 text-center">
