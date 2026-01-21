@@ -66,14 +66,10 @@ export default function LivreDor() {
   ];
   
   const [testimonials, setTestimonials] = useState<Testimonial[]>(getFallbackTestimonials());
+  const [googleSheetsTestimonials, setGoogleSheetsTestimonials] = useState<Testimonial[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Update testimonials when language changes
-  useEffect(() => {
-    setTestimonials(getFallbackTestimonials());
-  }, [language]);
-  
   // Load approved testimonials from Google Sheets on mount
   useEffect(() => {
     const loadTestimonials = async () => {
@@ -89,6 +85,7 @@ export default function LivreDor() {
         if (response.ok) {
           const data = await response.json();
           if (data && data.length > 0) {
+            setGoogleSheetsTestimonials(data);
             setTestimonials(data);
           }
         }
@@ -100,6 +97,17 @@ export default function LivreDor() {
 
     loadTestimonials();
   }, []); // Load once on mount
+  
+  // Update testimonials when language changes - preserve Google Sheets data if available
+  useEffect(() => {
+    if (googleSheetsTestimonials.length > 0) {
+      // Keep Google Sheets testimonials, don't replace with fallback
+      setTestimonials(googleSheetsTestimonials);
+    } else {
+      // Use translated fallback if no Google Sheets data
+      setTestimonials(getFallbackTestimonials());
+    }
+  }, [language]);
 
   const toggleTestimonial = (index: number) => {
     setExpandedTestimonials(prev => ({
