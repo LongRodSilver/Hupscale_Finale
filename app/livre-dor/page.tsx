@@ -69,6 +69,9 @@ export default function LivreDor() {
   const [googleSheetsTestimonials, setGoogleSheetsTestimonials] = useState<Testimonial[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(9); // Show 9 testimonials initially
+  
+  const TESTIMONIALS_PER_PAGE = 9;
 
   // Load approved testimonials from Google Sheets on mount
   useEffect(() => {
@@ -120,6 +123,13 @@ export default function LivreDor() {
     if (text.length <= maxLength) return text;
     return text.substring(0, maxLength) + '...';
   };
+  
+  const loadMore = () => {
+    setVisibleCount(prev => prev + TESTIMONIALS_PER_PAGE);
+  };
+  
+  const visibleTestimonials = testimonials.slice(0, visibleCount);
+  const hasMore = visibleCount < testimonials.length;
 
   return (
     <div className="relative min-h-screen bg-gradient-to-b from-white to-[#E8F5F5]">
@@ -516,7 +526,7 @@ export default function LivreDor() {
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {testimonials.map((testimonial, index) => (
+              {visibleTestimonials.map((testimonial, index) => (
                 <div
                   key={index}
                   className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300"
@@ -569,6 +579,19 @@ export default function LivreDor() {
                   )}
                 </div>
               ))}
+            </div>
+          )}
+          
+          {/* Load More Button */}
+          {!isLoading && hasMore && (
+            <div className="text-center mt-12">
+              <button
+                onClick={loadMore}
+                className="bg-[#007B79] hover:bg-[#006666] text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                style={{ fontFamily: 'LEMONMILK, Morgan, sans-serif' }}
+              >
+                {t('guestbook.load_more')}
+              </button>
             </div>
           )}
         </div>

@@ -1,3 +1,43 @@
 {
-  "pages": {}
+  "pages": {
+    "/_not-found/page": [
+      "static/chunks/webpack-89e4d0a5f61327e1.js",
+      "static/chunks/4bd1b696-f5da7b63396f8429.js",
+      "static/chunks/517-a643372cc6a69675.js",
+      "static/chunks/main-app-62eb520844d4474d.js",
+      "static/chunks/app/_not-found/page-d7eb7e926ef0e82f.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack-89e4d0a5f61327e1.js",
+      "static/chunks/4bd1b696-f5da7b63396f8429.js",
+      "static/chunks/517-a643372cc6a69675.js",
+      "static/chunks/main-app-62eb520844d4474d.js",
+      "static/css/32cdd0873550c6f3.css",
+      "static/chunks/app/layout-baf6d982ee5b11a2.js"
+    ],
+    "/page": [
+      "static/chunks/webpack-89e4d0a5f61327e1.js",
+      "static/chunks/4bd1b696-f5da7b63396f8429.js",
+      "static/chunks/517-a643372cc6a69675.js",
+      "static/chunks/main-app-62eb520844d4474d.js",
+      "static/chunks/956-48fd632465bcf588.js",
+      "static/chunks/674-5353cdf07eadb883.js",
+      "static/chunks/app/page-e5cfc2fd1f51c0d6.js"
+    ],
+    "/livre-dor/layout": [
+      "static/chunks/webpack-89e4d0a5f61327e1.js",
+      "static/chunks/4bd1b696-f5da7b63396f8429.js",
+      "static/chunks/517-a643372cc6a69675.js",
+      "static/chunks/main-app-62eb520844d4474d.js",
+      "static/chunks/app/livre-dor/layout-86e25469dc75da3b.js"
+    ],
+    "/livre-dor/page": [
+      "static/chunks/webpack-89e4d0a5f61327e1.js",
+      "static/chunks/4bd1b696-f5da7b63396f8429.js",
+      "static/chunks/517-a643372cc6a69675.js",
+      "static/chunks/main-app-62eb520844d4474d.js",
+      "static/chunks/674-5353cdf07eadb883.js",
+      "static/chunks/app/livre-dor/page-5f3bf60e64ce031a.js"
+    ]
+  }
 }
