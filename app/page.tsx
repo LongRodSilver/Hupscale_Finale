@@ -1779,7 +1779,7 @@ function HomeContent() {
             </span>
             <a
               href={`mailto:${t('cta.email')}`}
-              className="font-onest text-base sm:text-lg lg:text-xl text-[#232323] underline hover:no-underline transition-all duration-200"
+              className="font-onest text-base sm:text-lg lg:text-xl text-[#232323] underline hover:no-underline transition-all duration-200 inline-block align-baseline"
             >
               {t('cta.email')}
             </a>

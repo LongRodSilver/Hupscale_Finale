@@ -12,7 +12,7 @@
       "static/chunks/4bd1b696-f5da7b63396f8429.js",
       "static/chunks/517-a643372cc6a69675.js",
       "static/chunks/main-app-62eb520844d4474d.js",
-      "static/css/ae4f0db1bf8ecd2e.css",
+      "static/css/ef57903f3ae44f97.css",
       "static/chunks/app/layout-baf6d982ee5b11a2.js"
     ],
     "/page": [
@@ -21,8 +21,8 @@
       "static/chunks/517-a643372cc6a69675.js",
       "static/chunks/main-app-62eb520844d4474d.js",
       "static/chunks/956-48fd632465bcf588.js",
-      "static/chunks/674-3ca3a3583eb48098.js",
-      "static/chunks/app/page-ba50032f6ae291bc.js"
+      "static/chunks/674-282588279980ea61.js",
+      "static/chunks/app/page-e1a19dfa5cef3a66.js"
     ],
     "/livre-dor/layout": [
       "static/chunks/webpack-89e4d0a5f61327e1.js",
@@ -36,7 +36,7 @@
       "static/chunks/4bd1b696-f5da7b63396f8429.js",
       "static/chunks/517-a643372cc6a69675.js",
       "static/chunks/main-app-62eb520844d4474d.js",
-      "static/chunks/674-3ca3a3583eb48098.js",
+      "static/chunks/674-282588279980ea61.js",
       "static/chunks/app/livre-dor/page-5f3bf60e64ce031a.js"
     ]
   }
