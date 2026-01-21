@@ -1024,7 +1024,7 @@ function HomeContent() {
 
         {/* Section 3: What we do - Layer 3 */}
         <section className="sticky top-0 h-screen w-full" style={{ zIndex: 3, background: '#181818', minHeight: '100vh' }}>
-        <div className="max-w-7xl mx-auto h-full flex flex-col lg:flex-row items-center justify-between gap-4 sm:gap-8 lg:gap-16 px-4 sm:px-6 lg:px-16 py-8 sm:py-12 lg:py-16">
+        <div className="max-w-7xl mx-auto h-auto lg:h-full flex flex-col lg:flex-row items-center justify-between gap-4 sm:gap-8 lg:gap-16 px-4 sm:px-6 lg:px-16 py-8 sm:py-12 lg:py-16">
             {/* Left Content - Responsive */}
             <div className="text-white flex-1 max-w-2xl text-center lg:text-left">
               <h2 className="font-black leading-tight mb-5 text-white">
@@ -1307,9 +1307,9 @@ function HomeContent() {
               </button>
             </div>
 
-            {/* Natural Viewport-Based Carousel Container */}
+            {/* Desktop Carousel */}
             <div 
-              className="relative overflow-x-hidden overflow-y-hidden scrollbar-hide"
+              className="hidden lg:block relative overflow-x-hidden overflow-y-hidden scrollbar-hide"
               style={{
                 width: '100vw',
                 marginLeft: '50%',
@@ -1320,7 +1320,6 @@ function HomeContent() {
                 paddingRight: '2rem'
               }}
             >
-              {/* Testimonials Track - Full Width with Horizontal Scroll */}
               <div 
                 className="flex transition-transform duration-500 ease-out cursor-grab select-none"
                 style={{
@@ -1398,6 +1397,70 @@ function HomeContent() {
                   )
                 })}
               </div>
+            </div>
+
+            {/* Mobile Snap Scroll - Like Team Section */}
+            <div className="lg:hidden w-full overflow-x-auto snap-x snap-mandatory scrollbar-hide flex gap-4 px-4">
+              {getTestimonials().map((testimonial) => {
+                return (
+                  <div 
+                    key={testimonial.id}
+                    className="shrink-0 w-11/12 max-w-sm snap-center bg-white rounded-3xl p-6 flex flex-col justify-between"
+                    style={{
+                      height: `${CARD_HEIGHT}px`
+                    }}
+                  >
+                    {/* Star Rating */}
+                    <div className="mb-3">
+                      <svg className="w-24 sm:w-32 h-auto" viewBox="0 0 154 26" fill="none">
+                        <g>
+                          <path d="M13 1L15.09 6.26L21 7.27L17 11.14L18.18 17.02L13 14.77L7.82 17.02L9 11.14L5 7.27L10.91 6.26L13 1Z" fill="#00B081"/>
+                          <path d="M44 1L46.09 6.26L52 7.27L48 11.14L49.18 17.02L44 14.77L38.82 17.02L40 11.14L36 7.27L41.91 6.26L44 1Z" fill="#00B081"/>
+                          <path d="M75 1L77.09 6.26L83 7.27L79 11.14L80.18 17.02L75 14.77L69.82 17.02L71 11.14L67 7.27L72.91 6.26L75 1Z" fill="#00B081"/>
+                          <path d="M106 1L108.09 6.26L114 7.27L110 11.14L111.18 17.02L106 14.77L100.82 17.02L102 11.14L98 7.27L103.91 6.26L106 1Z" fill="#00B081"/>
+                          <path d="M137 1L139.09 6.26L145 7.27L141 11.14L142.18 17.02L137 14.77L131.82 17.02L133 11.14L129 7.27L134.91 6.26L137 1Z" fill="#00B081"/>
+                        </g>
+                      </svg>
+                    </div>
+
+                    {/* Testimonial Text */}
+                    <div className="flex-1 mb-4">
+                      <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+                        {testimonial.text}
+                      </p>
+                    </div>
+
+                    {/* Author Info */}
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        {testimonial.image && (
+                          <img 
+                            src={testimonial.image} 
+                            alt={testimonial.name}
+                            className="w-12 h-12 rounded-full object-cover"
+                          />
+                        )}
+                        <div>
+                          <p className="font-bold text-gray-900 text-sm">{testimonial.name}</p>
+                        </div>
+                      </div>
+                      {testimonial.instagram && (
+                        <a 
+                          href={`https://instagram.com/${testimonial.instagram}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-shrink-0 w-10 h-10 flex items-center justify-center bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 rounded-full hover:scale-110 transition-transform duration-200"
+                          aria-label={`Visit ${testimonial.name} on Instagram`}
+                        >
+                          <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                          </svg>
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                )
+              })}
             </div>
           </div>
         </div>
