@@ -297,10 +297,12 @@ function HomeContent() {
   // TESTIMONIALS CAROUSEL - 50 CARD INFINITE SCROLL IMPLEMENTATION
   
   // FIGMA SPECIFICATIONS WITH NATURAL FLOW
-  const CARD_WIDTH = 354.4 // Exact width from Figma
+  // Mobile: full width minus padding, Desktop: Figma spec
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 1024
+  const CARD_WIDTH = isMobile ? (typeof window !== 'undefined' ? window.innerWidth - 64 : 354.4) : 354.4 // Full width on mobile, Figma width on desktop
   const CARD_HEIGHT = 390 // Exact height from Figma
-  const GAP = 32 // Rounded gap from Figma (31.97px)
-  const STEP = CARD_WIDTH + GAP // 386.4px per card - used for transform calculations
+  const GAP = isMobile ? 16 : 32 // Smaller gap on mobile
+  const STEP = CARD_WIDTH + GAP // Used for transform calculations
   
   // CREATE EXACTLY 50 TESTIMONIAL CARDS (10 SETS OF 5)
   const createInfiniteArray = () => {
@@ -984,7 +986,7 @@ function HomeContent() {
 
         {/* Section 3: What we do - Layer 3 */}
         <section className="sticky top-0 h-screen w-full" style={{ zIndex: 3, background: '#181818', minHeight: '100vh' }}>
-        <div className="max-w-7xl mx-auto h-full flex flex-col lg:flex-row items-center justify-between gap-4 sm:gap-8 lg:gap-16 px-4 sm:px-6 lg:px-16 py-8 sm:py-12 lg:py-16">
+        <div className="max-w-7xl mx-auto h-full flex flex-col lg:flex-row items-center justify-between gap-4 sm:gap-8 lg:gap-16 px-4 sm:px-6 lg:px-16 py-8 sm:py-12 lg:py-16 overflow-y-auto lg:overflow-y-visible">
             {/* Left Content - Responsive */}
             <div className="text-white flex-1 max-w-2xl text-center lg:text-left">
               <h2 className="font-black leading-tight mb-5 text-white">
@@ -1248,8 +1250,8 @@ function HomeContent() {
 
           {/* Carousel Section - Full Viewport Width */}
           <div className="relative mt-2">
-            {/* Navigation Arrows - Positioned relative to viewport */}
-            <div className="absolute -top-12 sm:-top-16 right-4 sm:right-8 lg:right-16 flex gap-2 sm:gap-3 z-10">
+            {/* Navigation Arrows - Hidden on mobile, visible on desktop */}
+            <div className="hidden lg:flex absolute -top-12 sm:-top-16 right-4 sm:right-8 lg:right-16 gap-2 sm:gap-3 z-10">
               {/* Left Arrow Button - Responsive */}
               <button
                 className="min-w-[44px] min-h-[44px] w-11 h-11 sm:w-12 sm:h-12 lg:w-14 lg:h-14 bg-white bg-opacity-40 hover:bg-opacity-60 rounded-full border-2 border-white border-opacity-50 cursor-pointer flex items-center justify-center transition-all duration-200 text-white shadow-lg hover:shadow-xl hover:scale-105"
@@ -1377,14 +1379,14 @@ function HomeContent() {
                 
                 {/* Team Member 1 */}
                 <div className="shrink-0 w-11/12 max-w-sm snap-center bg-white rounded-2xl p-6 shadow-lg">
-                  <div className="w-24 h-24 mx-auto mb-4">
+                  <div className="w-32 h-32 mx-auto mb-6">
                     <img 
                       src={getImagePath("/team-scalpa-new.jpg")} 
                       alt="Pascal Delorantis"
                       className="w-full h-full rounded-full object-cover"
                     />
                   </div>
-                  <h3 className="text-xl font-bold text-[#181818] text-center mb-1">
+                  <h3 className="text-xl font-bold text-[#181818] text-center mb-2">
                     {t('team.members.pascal.name')}
                   </h3>
                   <p className="text-base text-[#007B79] text-center mb-3">
@@ -1413,14 +1415,14 @@ function HomeContent() {
                 
                 {/* Team Member 2 - Frédéric Cordat */}
                 <div className="shrink-0 w-11/12 max-w-sm snap-center bg-white rounded-2xl p-6 shadow-lg">
-                  <div className="w-24 h-24 mx-auto mb-4">
+                  <div className="w-32 h-32 mx-auto mb-6">
                     <img 
                       src={getImagePath("/team-frederic.png")} 
                       alt="Frédéric Cordat"
                       className="w-full h-full rounded-full object-cover"
                     />
                   </div>
-                  <h3 className="text-xl font-bold text-[#181818] text-center mb-1">
+                  <h3 className="text-xl font-bold text-[#181818] text-center mb-2">
                     {t('team.members.frederic.name')}
                   </h3>
                   <p className="text-base text-[#007B79] text-center mb-3">
