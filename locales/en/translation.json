@@ -230,7 +230,14 @@
     "heading": "TIP THE SCALES IN YOUR FAVOR",
     "contactText": "you can also contact us directly",
     "email": "contact@hupscale.com",
-    "button": "Let's Scale"
+    "button": "Let's Scale",
+    "learnMore": "Learn More"
+  },
+  "pdf": {
+    "title": "Hupscale - A Brille en Marketing",
+    "page": "Page",
+    "previous": "Previous",
+    "next": "Next"
   },
   "footer": {
     "copyright": "2025 Hupscale. All rights reserved.",

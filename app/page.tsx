@@ -9,6 +9,7 @@ import { motion } from "framer-motion"
 import BaseImage from "@/components/BaseImage"
 import { LanguageProvider, useLanguage } from "@/contexts/LanguageContext"
 import { useTranslations } from "@/hooks/useTranslations"
+import PdfModal from "@/components/PdfModal"
 
 // Helper function to get proper image path for GitHub Pages
 const getImagePath = (path: string) => {
@@ -141,6 +142,7 @@ function HomeContent() {
   const [isAnimating, setIsAnimating] = useState(false);
   const [openFaqIdx, setOpenFaqIdx] = useState<number | null>(null);
   const [expandedBios, setExpandedBios] = useState<{[key: number]: boolean}>({});
+  const [isPdfModalOpen, setIsPdfModalOpen] = useState(false);
 
   // Get translated testimonials data
   const getTestimonials = () => [
@@ -1700,6 +1702,12 @@ function HomeContent() {
             <a href="mailto:hello@hupscale.com" className="bg-[#007B79] text-white border-none rounded-full px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold cursor-pointer uppercase shadow-lg hover:shadow-2xl hover:scale-105 hover:bg-[#006666] transition-all duration-300 min-h-[44px] min-w-[44px] no-underline inline-block text-center">
               {t('interaction.cta')}
             </a>
+            <button
+              onClick={() => setIsPdfModalOpen(true)}
+              className="bg-white text-[#007B79] border-2 border-[#007B79] rounded-full px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold cursor-pointer uppercase shadow-lg hover:shadow-2xl hover:scale-105 hover:bg-[#007B79] hover:text-white transition-all duration-300 min-h-[44px] min-w-[44px]"
+            >
+              {t('cta.learnMore')}
+            </button>
             <a href={getImagePath('/livre-dor/')} className="bg-white text-[#007B79] border-2 border-[#007B79] rounded-full px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold cursor-pointer uppercase shadow-lg hover:shadow-2xl hover:scale-105 hover:bg-[#007B79] hover:text-white transition-all duration-300 min-h-[44px] min-w-[44px] no-underline inline-block text-center">
               {t('interaction.guestbook')}
             </a>
@@ -1838,6 +1846,12 @@ function HomeContent() {
         </div>
       </section>
 
+      {/* PDF Modal */}
+      <PdfModal
+        isOpen={isPdfModalOpen}
+        onClose={() => setIsPdfModalOpen(false)}
+        pdfUrl={getImagePath('/LaunchingUPSCALE_ABrilleenMarketing.pdf')}
+      />
     </div>
   )
 }

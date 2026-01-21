@@ -230,7 +230,14 @@
     "heading": "FAITES PENCHER LA BALANCE EN VOTRE FAVEUR",
     "contactText": "vous pouvez aussi nous contacter directement",
     "email": "contact@hupscale.com",
-    "button": "Grandissons"
+    "button": "Grandissons",
+    "learnMore": "En Savoir +"
+  },
+  "pdf": {
+    "title": "Hupscale - A Brille en Marketing",
+    "page": "Page",
+    "previous": "Précédent",
+    "next": "Suivant"
   },
   "footer": {
     "copyright": "2025 Hupscale. Tous droits réservés.",
