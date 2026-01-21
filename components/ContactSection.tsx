@@ -7,7 +7,7 @@ export default function ContactSection() {
 
   return (
     <section className="sticky top-0 h-screen w-full" style={{ zIndex: 8, background: '#007B79', minHeight: '100vh' }}>
-      <div className="h-full flex flex-col justify-center py-12 px-4 sm:px-8 lg:px-16">
+      <div className="h-screen flex flex-col justify-center py-12 px-4 sm:px-8 lg:px-16">
         
         {/* Heading */}
         <div className="text-center mb-12 lg:mb-16">
@@ -104,45 +104,6 @@ export default function ContactSection() {
           </div>
 
         </div>
-      </div>
-
-      {/* Footer Container with Teal Background */}
-      <div className="w-full bg-[#007B79] mt-20">
-        <footer className="relative px-4 sm:px-8 lg:px-16 py-8 lg:py-12">
-          <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-6 lg:gap-8">
-            
-            {/* Left: Copyright - Responsive */}
-            <p className="text-base sm:text-lg text-white font-onest font-normal text-center lg:text-left order-3 lg:order-1">
-              2025 Hupscale. All rights reserved.
-            </p>
-            
-            {/* Center: Instagram Link with Icon - Responsive */}
-            <div className="flex items-center gap-2 sm:gap-3 order-2">
-              {/* Instagram Icon */}
-              <svg className="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5.8 0H14.2C17.4 0 20 2.6 20 5.8V14.2C20 17.4 17.4 20 14.2 20H5.8C2.6 20 0 17.4 0 14.2V5.8C0 2.6 2.6 0 5.8 0ZM5.6 2C3.61 2 2 3.61 2 5.6V14.4C2 16.39 3.61 18 5.6 18H14.4C16.39 18 18 16.39 18 14.4V5.6C18 3.61 16.39 2 14.4 2H5.6ZM15.25 3.5C15.94 3.5 16.5 4.06 16.5 4.75C16.5 5.44 15.94 6 15.25 6C14.56 6 14 5.44 14 4.75C14 4.06 14.56 3.5 15.25 3.5ZM10 5C12.76 5 15 7.24 15 10C15 12.76 12.76 15 10 15C7.24 15 5 12.76 5 10C5 7.24 7.24 5 10 5ZM10 7C8.34 7 7 8.34 7 10C7 11.66 8.34 13 10 13C11.66 13 13 11.66 13 10C13 8.34 11.66 7 10 7Z" fill="white"/>
-              </svg>
-              <a href="https://www.instagram.com/lets.hupscale/" target="_blank" rel="noopener" className="text-base sm:text-lg text-white font-onest font-semibold hover:text-opacity-80 transition-all duration-200">
-                Instagram
-              </a>
-            </div>
-            
-            {/* Right: Logo + Terms & Privacy - Responsive */}
-            <div className="flex flex-col items-center gap-3 lg:gap-4 order-1 lg:order-3">
-              {/* HUPSCALE Logo */}
-              <div className="text-xl sm:text-2xl font-bold text-white font-inter">
-                HUPSCALE
-              </div>
-              
-              {/* Terms & Privacy */}
-              <div className="flex items-center gap-4 sm:gap-6 text-white">
-                <span className="text-base sm:text-lg font-onest cursor-pointer hover:text-opacity-80 transition-all duration-200">Terms</span>
-                <span className="text-base sm:text-lg font-onest cursor-pointer hover:text-opacity-80 transition-all duration-200">Privacy</span>
-              </div>
-            </div>
-            
-          </div>
-        </footer>
       </div>
     </section>
   )
