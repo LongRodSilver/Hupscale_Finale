@@ -298,8 +298,17 @@ function HomeContent() {
   
   // FIGMA SPECIFICATIONS WITH NATURAL FLOW
   // Mobile: full width minus padding, Desktop: Figma spec
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 1024
-  const CARD_WIDTH = isMobile ? (typeof window !== 'undefined' ? window.innerWidth - 64 : 354.4) : 354.4 // Full width on mobile, Figma width on desktop
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024)
+  
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth)
+    handleResize() // Set initial value
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+  
+  const isMobile = windowWidth < 1024
+  const CARD_WIDTH = isMobile ? windowWidth - 64 : 354.4 // Full width on mobile, Figma width on desktop
   const CARD_HEIGHT = 390 // Exact height from Figma
   const GAP = isMobile ? 16 : 32 // Smaller gap on mobile
   const STEP = CARD_WIDTH + GAP // Used for transform calculations
@@ -316,14 +325,17 @@ function HomeContent() {
   const infiniteTestimonials = createInfiniteArray()
   
   const [currentIndex, setCurrentIndex] = useState(20) // Start at card 20 (middle)
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+  // Disable auto-play on mobile, enable on desktop
+  const [isAutoPlaying, setIsAutoPlaying] = useState(typeof window !== 'undefined' && window.innerWidth >= 1024)
 
   // NATURAL VIEWPORT EDGE CUTTING - Center 3 cards, let viewport cut the edges naturally
   const translateX = -((currentIndex - 0.5) * STEP)
 
-  // Automatic rotation with boundary resets
+  // Automatic rotation with boundary resets (disabled on mobile)
   useEffect(() => {
-    if (!isAutoPlaying) return
+    // Only auto-play on desktop
+    const isDesktop = typeof window !== 'undefined' && window.innerWidth >= 1024
+    if (!isAutoPlaying || !isDesktop) return
     
     const interval = setInterval(() => {
       setCurrentIndex(prevIndex => {
@@ -375,8 +387,34 @@ function HomeContent() {
       return nextIndex
     })
     
-    // Resume auto-rotation after 4 seconds
-    setTimeout(() => setIsAutoPlaying(true), 4000)
+    // Resume auto-rotation after 4 seconds (only on desktop)
+    const isDesktop = typeof window !== 'undefined' && window.innerWidth >= 1024
+    if (isDesktop) {
+      setTimeout(() => setIsAutoPlaying(true), 4000)
+    }
+  }
+
+  // Touch swipe handlers for mobile
+  const [touchStart, setTouchStart] = useState(0)
+  const [touchEnd, setTouchEnd] = useState(0)
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX)
+  }
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX)
+  }
+
+  const handleTouchEnd = () => {
+    if (touchStart - touchEnd > 75) {
+      // Swiped left - go to next
+      handleNext()
+    }
+    if (touchStart - touchEnd < -75) {
+      // Swiped right - go to previous
+      handlePrevious()
+    }
   }
 
   // Handle service change with animation
@@ -986,7 +1024,7 @@ function HomeContent() {
 
         {/* Section 3: What we do - Layer 3 */}
         <section className="sticky top-0 h-screen w-full" style={{ zIndex: 3, background: '#181818', minHeight: '100vh' }}>
-        <div className="max-w-7xl mx-auto h-full flex flex-col lg:flex-row items-center justify-between gap-4 sm:gap-8 lg:gap-16 px-4 sm:px-6 lg:px-16 py-8 sm:py-12 lg:py-16 overflow-y-auto lg:overflow-y-visible">
+        <div className="max-w-7xl mx-auto h-full flex flex-col lg:flex-row items-center justify-between gap-4 sm:gap-8 lg:gap-16 px-4 sm:px-6 lg:px-16 py-8 sm:py-12 lg:py-16">
             {/* Left Content - Responsive */}
             <div className="text-white flex-1 max-w-2xl text-center lg:text-left">
               <h2 className="font-black leading-tight mb-5 text-white">
@@ -1288,10 +1326,13 @@ function HomeContent() {
                 style={{
                   gap: `${GAP}px`,
                   transform: `translateX(${translateX}px)`,
-                  touchAction: 'pan-y',
+                  touchAction: 'pan-x',
                   width: 'max-content',
                   minWidth: `${infiniteTestimonials.length * STEP}px`
                 }}
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
               >
                 {infiniteTestimonials.map((testimonial, index) => {
                   return (
@@ -1379,11 +1420,12 @@ function HomeContent() {
                 
                 {/* Team Member 1 */}
                 <div className="shrink-0 w-11/12 max-w-sm snap-center bg-white rounded-2xl p-6 shadow-lg">
-                  <div className="w-32 h-32 mx-auto mb-6">
+                  <div className="w-32 h-32 mx-auto mb-6 overflow-hidden rounded-full">
                     <img 
                       src={getImagePath("/team-scalpa-new.jpg")} 
                       alt="Pascal Delorantis"
-                      className="w-full h-full rounded-full object-cover"
+                      className="w-full h-full object-cover"
+                      style={{ objectPosition: 'center' }}
                     />
                   </div>
                   <h3 className="text-xl font-bold text-[#181818] text-center mb-2">
@@ -1415,11 +1457,12 @@ function HomeContent() {
                 
                 {/* Team Member 2 - Frédéric Cordat */}
                 <div className="shrink-0 w-11/12 max-w-sm snap-center bg-white rounded-2xl p-6 shadow-lg">
-                  <div className="w-32 h-32 mx-auto mb-6">
+                  <div className="w-32 h-32 mx-auto mb-6 overflow-hidden rounded-full">
                     <img 
                       src={getImagePath("/team-frederic.png")} 
                       alt="Frédéric Cordat"
-                      className="w-full h-full rounded-full object-cover"
+                      className="w-full h-full object-cover"
+                      style={{ objectPosition: 'center' }}
                     />
                   </div>
                   <h3 className="text-xl font-bold text-[#181818] text-center mb-2">
