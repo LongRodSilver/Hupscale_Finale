@@ -28,22 +28,20 @@ export default function TestimonialForm() {
     }
   };
 
-  const uploadPhotoToImgur = async (file: File): Promise<string | null> => {
+  const uploadPhotoToCloudinary = async (file: File): Promise<string | null> => {
     const formData = new FormData();
-    formData.append('image', file);
+    formData.append('file', file);
+    formData.append('upload_preset', 'hupscale_testimonials');
 
     try {
-      const response = await fetch('https://api.imgur.com/3/image', {
+      const response = await fetch('https://api.cloudinary.com/v1_1/dwerrbdot/image/upload', {
         method: 'POST',
-        headers: {
-          Authorization: 'Client-ID 4e1b1c1c1c1c1c1' // Public Imgur client ID
-        },
         body: formData
       });
 
       if (response.ok) {
         const data = await response.json();
-        return data.data.link;
+        return data.secure_url;
       }
     } catch (error) {
       console.error('Photo upload failed:', error);
@@ -68,7 +66,7 @@ export default function TestimonialForm() {
       // Upload photo if provided
       let photoUrl = '';
       if (formData.photo) {
-        const uploadedUrl = await uploadPhotoToImgur(formData.photo);
+        const uploadedUrl = await uploadPhotoToCloudinary(formData.photo);
         photoUrl = uploadedUrl || '';
       }
 
