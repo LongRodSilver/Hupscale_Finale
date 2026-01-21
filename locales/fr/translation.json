@@ -239,6 +239,25 @@
     "previous": "Précédent",
     "next": "Suivant"
   },
+  "contact": {
+    "heading": "NOUS CONTACTER",
+    "subheading": "Choisissez comment vous souhaitez nous contacter",
+    "email": {
+      "title": "Contact Direct",
+      "description": "Envoyez-nous un email pour toute question ou demande.",
+      "button": "Nous Écrire"
+    },
+    "coaching": {
+      "title": "Coaching Personnalisé Gratuit",
+      "description": "Remplissez notre questionnaire. Si vous êtes éligible, notre équipe vous rappellera.",
+      "button": "Remplir le Questionnaire"
+    },
+    "paidCall": {
+      "title": "Appel de Consultation Payant",
+      "description": "Appel de 30 minutes avec notre expert. 50€ TTC.",
+      "button": "Réserver & Payer (50€)"
+    }
+  },
   "footer": {
     "copyright": "2025 Hupscale. Tous droits réservés.",
     "instagram": "Instagram",

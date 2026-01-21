@@ -10,6 +10,7 @@ import BaseImage from "@/components/BaseImage"
 import { LanguageProvider, useLanguage } from "@/contexts/LanguageContext"
 import { useTranslations } from "@/hooks/useTranslations"
 import PdfModal from "@/components/PdfModal"
+import ContactSection from "@/components/ContactSection"
 
 // Helper function to get proper image path for GitHub Pages
 const getImagePath = (path: string) => {
@@ -1845,6 +1846,9 @@ function HomeContent() {
         </div>
         </div>
       </section>
+
+      {/* Section 9: Contact Us */}
+      <ContactSection />
 
       {/* PDF Modal */}
       <PdfModal

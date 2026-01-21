@@ -239,6 +239,25 @@
     "previous": "Previous",
     "next": "Next"
   },
+  "contact": {
+    "heading": "CONTACT US",
+    "subheading": "Choose how you'd like to connect with us",
+    "email": {
+      "title": "Direct Contact",
+      "description": "Send us an email for any questions or inquiries.",
+      "button": "Email Us"
+    },
+    "coaching": {
+      "title": "Free Personalized Coaching",
+      "description": "Fill out our questionnaire. If you are eligible, our team will call you back.",
+      "button": "Fill the Form"
+    },
+    "paidCall": {
+      "title": "Paid Consultation Call",
+      "description": "30-minute call with our expert. €50 including VAT.",
+      "button": "Book & Pay (€50)"
+    }
+  },
   "footer": {
     "copyright": "2025 Hupscale. All rights reserved.",
     "instagram": "Instagram",
