@@ -25,10 +25,7 @@ export default function LivreDor() {
   const { t, language } = useTranslations();
   const { setLanguage } = useLanguage();
   const [expandedTestimonials, setExpandedTestimonials] = useState<{ [key: number]: boolean }>({});
-  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
+  
   // Fallback testimonials (hardcoded from homepage) - will use translation keys
   const getFallbackTestimonials = (): Testimonial[] => [
     {
@@ -67,11 +64,19 @@ export default function LivreDor() {
       instagram: "jazmin"
     }
   ];
+  
+  const [testimonials, setTestimonials] = useState<Testimonial[]>(getFallbackTestimonials());
+  const [isLoading, setIsLoading] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Load approved testimonials from Google Sheets
+  // Update testimonials when language changes
+  useEffect(() => {
+    setTestimonials(getFallbackTestimonials());
+  }, [language]);
+  
+  // Load approved testimonials from Google Sheets on mount
   useEffect(() => {
     const loadTestimonials = async () => {
-      setIsLoading(true);
       try {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
@@ -85,23 +90,16 @@ export default function LivreDor() {
           const data = await response.json();
           if (data && data.length > 0) {
             setTestimonials(data);
-          } else {
-            // Use fallback if no approved testimonials
-            setTestimonials(getFallbackTestimonials());
           }
-        } else {
-          setTestimonials(getFallbackTestimonials());
         }
       } catch (error) {
-        console.error('Failed to load testimonials:', error);
-        setTestimonials(getFallbackTestimonials());
-      } finally {
-        setIsLoading(false);
+        console.error('Failed to load testimonials from Google Sheets, using fallback:', error);
+        // Keep fallback testimonials that are already set
       }
     };
 
     loadTestimonials();
-  }, [language]); // Reload when language changes
+  }, []); // Load once on mount
 
   const toggleTestimonial = (index: number) => {
     setExpandedTestimonials(prev => ({
