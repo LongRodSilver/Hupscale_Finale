@@ -1152,22 +1152,7 @@ function HomeContent() {
               </div>
             </div>
 
-            {/* Desktop Connector Container */}
-            <div className="hidden lg:flex justify-center items-center gap-24 xl:gap-32 mt-6 mb-12">
-              {/* Curved Arrow 1 - Exact SVG */}
-              <div style={{ width: '245px', height: '68px', flexShrink: 0 }}>
-                <svg width="245" height="68" viewBox="0 0 245 68" fill="none">
-                  <path d="M240.597 4.26153C233.842 -3.70832 225.193 4.88885 225.193 4.88885C225.193 4.88885 184.121 37.752 122.505 38.7073C60.875 37.7378 19.8169 4.88885 19.8169 4.88885C19.8169 4.88885 11.1539 -3.70832 4.41294 4.26153C-4.04106 14.2417 -1.95207 28.0856 24.9419 43.9682C69.2319 70.1162 117.449 68.8758 118.062 68.8616C119.301 68.8901 175.973 70.0021 220.054 43.9682C246.948 28.0856 249.037 14.2417 240.597 4.26153Z" fill="#00BCBE"/>
-                </svg>
-              </div>
 
-              {/* Curved Arrow 2 - Exact SVG */}
-              <div style={{ width: '245px', height: '68px', flexShrink: 0 }}>
-                <svg width="245" height="68" viewBox="0 0 245 68" fill="none">
-                  <path d="M240.597 4.26153C233.842 -3.70832 225.193 4.88885 225.193 4.88885C225.193 4.88885 184.121 37.752 122.505 38.7073C60.875 37.7378 19.8169 4.88885 19.8169 4.88885C19.8169 4.88885 11.1539 -3.70832 4.41294 4.26153C-4.04106 14.2417 -1.95207 28.0856 24.9419 43.9682C69.2319 70.1162 117.449 68.8758 118.062 68.8616C119.301 68.8901 175.973 70.0021 220.054 43.9682C246.948 28.0856 249.037 14.2417 240.597 4.26153Z" fill="#00BCBE"/>
-                </svg>
-              </div>
-            </div>
           </div>
 
           {/* Mobile Layout */}
@@ -1802,7 +1787,7 @@ function HomeContent() {
           
           {/* CTA Button - Responsive */}
           <a 
-            href="mailto:hello@hupscale.com"
+            href="mailto:contact@hupscale.com"
             className="bg-white text-[#007B79] rounded-full px-6 py-3 sm:px-8 sm:py-4 lg:px-10 lg:py-5 no-underline inline-block mt-4 lg:mt-6 hover:bg-opacity-90 transition-all duration-200 shadow-lg hover:shadow-xl"
           >
             <span className="font-onest text-base sm:text-lg lg:text-xl xl:text-2xl font-bold uppercase tracking-wide">
