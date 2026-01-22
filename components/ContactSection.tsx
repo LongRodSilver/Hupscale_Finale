@@ -7,7 +7,7 @@ export default function ContactSection() {
 
   return (
     <section className="sticky top-0 h-screen w-full" style={{ zIndex: 7, background: '#007B79', minHeight: '100vh' }}>
-      <div className="h-screen flex flex-col justify-center py-12 px-4 sm:px-8 lg:px-16">
+      <div className="h-auto lg:h-screen flex flex-col justify-center py-12 px-4 sm:px-8 lg:px-16">
         
         {/* Heading */}
         <div className="text-center mb-12 lg:mb-16">
