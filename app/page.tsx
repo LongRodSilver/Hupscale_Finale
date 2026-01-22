@@ -747,7 +747,7 @@ function HomeContent() {
         
         {/* Get Started Button - Responsive */}
         <a
-          href="mailto:hello@hupscale.com"
+          href="mailto:contact@hupscale.com"
           className="hidden md:block bg-[rgb(0,123,121)] text-[rgb(5,5,5)] border border-[rgb(5,5,5)] rounded-full px-4 lg:px-5 py-2 lg:py-3 text-xs lg:text-sm font-medium font-inter cursor-pointer transition-all duration-200 shadow-sm whitespace-nowrap no-underline inline-block text-center"
           style={{ marginLeft: '12px', fontSize: '13px', fontFamily: 'LEMONMILK, Morgan, sans-serif' }}
         >
@@ -855,7 +855,7 @@ function HomeContent() {
               </div>
               
               <a
-                href="mailto:hello@hupscale.com"
+                href="mailto:contact@hupscale.com"
                 className="bg-[rgb(0,123,121)] text-[rgb(5,5,5)] border border-[rgb(5,5,5)] rounded-full px-6 py-3 text-sm font-medium text-center mt-4 no-underline inline-block"
                 onClick={() => {
                   setIsMobileMenuOpen(false);
