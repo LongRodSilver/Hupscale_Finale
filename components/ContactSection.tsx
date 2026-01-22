@@ -6,11 +6,11 @@ export default function ContactSection() {
   const { t } = useTranslations();
 
   return (
-    <section className="sticky top-0 h-screen w-full" style={{ zIndex: 7, background: '#007B79', minHeight: '100vh' }}>
-      <div className="h-auto lg:h-screen flex flex-col justify-center py-12 px-4 sm:px-8 lg:px-16">
+    <section className="sticky top-0 min-h-screen w-full" style={{ zIndex: 7, background: '#007B79' }}>
+      <div className="flex flex-col justify-center py-8 sm:py-12 px-4 sm:px-8 lg:px-16 min-h-screen">
         
         {/* Heading */}
-        <div className="text-center mb-12 lg:mb-16">
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
           <h2 className="font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-4">
             {t('contact.heading')}
           </h2>
