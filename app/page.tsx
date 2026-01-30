@@ -1163,7 +1163,7 @@ function HomeContent() {
           {/* Process Steps Container - Responsive */}
           <div className="w-full">
             {/* Desktop Process Steps Row */}
-            <div className="hidden lg:flex items-start justify-between w-full max-w-5xl mx-auto mb-12">
+            <div className="hidden lg:flex items-start justify-between w-full max-w-5xl mx-auto mb-12 gap-8 xl:gap-12">
               {/* Step 1: We listen */}
               <div className="flex flex-col items-start flex-1 max-w-xs">
                 <h3 className="font-black text-2xl lg:text-3xl xl:text-4xl mb-6 lg:mb-8 whitespace-nowrap">
@@ -1893,7 +1893,7 @@ function HomeContent() {
           </h1>
           
           {/* Contact Info Text - Responsive */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 mt-4 lg:mt-6 mb-6 lg:mb-8 text-center">
+          <div className="flex flex-col items-center justify-center gap-2 mt-4 lg:mt-6 mb-6 lg:mb-8 text-center">
             <span className="font-onest text-base sm:text-lg lg:text-xl text-[#232323]">
               {t('cta.contactText')}
             </span>
